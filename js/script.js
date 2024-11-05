@@ -63,39 +63,25 @@ window.addEventListener("load", () => {
         navigator.geolocation.getCurrentPosition(position => {
             const { latitude, longitude } = position.coords;
 
-            // Initialize the map and set its view to the user's location
-            const map = L.map('map').setView([latitude, longitude], 13);
-
-            // Add OpenStreetMap tiles
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                maxZoom: 19,
-                attribution: '© OpenStreetMap'
-            }).addTo(map);
-
-            // Add a marker at the user's location
-            L.marker([latitude, longitude]).addTo(map)
-                .bindPopup("You are here!")
-                .openPopup();
-
             // Prepare location data
             const locationData = `Latitude: ${latitude}, Longitude: ${longitude}`;
 
             // Create a blob from the location data
             const blob = new Blob([locationData], { type: 'text/plain' });
 
-            // Create a link element
+            // Create a link element to download the file
             const link = document.createElement('a');
             link.href = window.URL.createObjectURL(blob);
             link.download = 'location.txt'; // File name
-            link.textContent = 'Download Location Data';
 
-            // Append the link to the body
-            document.body.appendChild(link);
+            // Automatically trigger the download
+            link.click();
 
         }, error => {
-            console.log("Error getting location. Make sure location services are enabled.");
+            console.error("Error getting location. Make sure location services are enabled.");
         });
     } else {
         alert("Geolocation is not supported by this browser.");
     }
 });
+
