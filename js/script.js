@@ -1,6 +1,37 @@
 //=========================scroll sections active link=================================//
 let sections = document.querySelectorAll('section');
 let navLinks = document.querySelectorAll('header nav a');
+document.addEventListener("DOMContentLoaded", () => {
+    const items = document.querySelectorAll(".portfolio-item");
+    const loadMoreButton = document.getElementById("loadMore");
+    let visibleItems = 3;
+
+    // Show the initial three items
+    for (let i = 0; i < visibleItems; i++) {
+        if (items[i]) {
+            items[i].classList.add("visible");
+        }
+    }
+
+    // Load More functionality
+    loadMoreButton.addEventListener("click", () => {
+        const totalItems = items.length;
+        let newVisibleItems = visibleItems + 3;
+
+        for (let i = visibleItems; i < newVisibleItems && i < totalItems; i++) {
+            if (items[i]) {
+                items[i].classList.add("visible");
+            }
+        }
+
+        visibleItems = newVisibleItems;
+
+        // Hide the button if all items are visible
+        if (visibleItems >= totalItems) {
+            loadMoreButton.style.display = "none";
+        }
+    });
+});
 
 window.onscroll = () => {
 
