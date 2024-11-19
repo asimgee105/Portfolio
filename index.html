@@ -39,6 +39,28 @@
             font-size: 16px; /* Improved readability */
             font-family: Arial, sans-serif; /* Clean and simple font */
         }
+        .portfolio-item {
+                display: none; /* Hide all items initially */
+            }
+            
+            .portfolio-item.visible {
+                display: block; /* Show items when made visible */
+            }
+            
+            .load-more {
+                display: block;
+                margin: 20px auto;
+                padding: 10px 20px;
+                background-color: #007bff;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            
+            .load-more:hover {
+                background-color: #0056b3;
+            }
     </style>
 </head>
 
@@ -144,64 +166,75 @@
     </section>
 
     <!-- Portfolio section  -->
-    <section class="portfolio" id="portfolio">
-        <h2 class="heading">Latest <span>Projects</span></h2>
+   <section class="portfolio" id="portfolio">
+    <h2 class="heading">Latest <span>Projects</span></h2>
 
-        <div class="portfolio-container">
-            <div class="portfolio-box">
-                <a href="https://www.goacarrepair.com/" target="_blank">
-                <img src="img/portfolio pics/goa.png" alt="portfolio">
+    <div class="portfolio-container">
+        <!-- Portfolio Items -->
+        <div class="portfolio-box portfolio-item">
+            <a href="https://www.goacarrepair.com/" target="_blank" rel="noopener">
+                <img src="img/portfolio-pics/goa.png" alt="Goa Car Repair Project">
                 <div class="portfolio-layer">
-                    <h4>Goa Car Repair</h4>
-                    <p>First Project in PHP . In which services provide.</p>
-                  
+                    <h3>Goa Car Repair</h3>
+                    <p>A PHP project providing car repair services.</p>
                 </div>
-              </a>
-            </div>
-
-            <div class="portfolio-box">
-                <a href="https://www.gogreenuae.ae/" target="_blank">
-                <img src="img/portfolio pics/gogreen.png" alt="portfolio">
-                <div class="portfolio-layer">
-                    <h4>GoGreen</h4>
-                    <p>Go green also services provide webiste  in ehich organic cleaning , mechinical etc.</p>
-                </div>
-                </a>
-            </div>
-
-            <div class="portfolio-box">
-                <a href="https://www.luxliving.ae/" target="_blank">
-                <img src="img/portfolio pics/Luxliving.png" alt="portfolio">
-                <div class="portfolio-layer">
-                    <h4>Luxliving</h4>
-                    <p>Luxliving a Properties sale website in which properties are sale and rent</p>
-                </div>
-                </a>
-            </div>
-
-            <div class="portfolio-box">
-                <a href="https://oneearthproperties.com/" target="_blank">
-                <img src="img/portfolio pics/onearth.png" alt="portfolio">
-                <div class="portfolio-layer">
-                    <h4>Onearth PROPERTIES</h4>
-                    <p>Onearth a Properties sale website in which properties are sale and rent</p>
-                   <i  class='bx bx-link-external'></i>
-                </div>
-                </a>
-            </div>
-
-            <div class="portfolio-box">
-                <a href="https://test.royalelitedxb.ae/" target="_blank">
-                <img src="img/portfolio pics/royalelite.png" alt="portfolio">
-                <div class="portfolio-layer">
-                    <h4>Royal Elite</h4>
-                    <p>Royala Elite Properties sale website in which properties are sale and rent</p>
-                </div>
-                </a>
-            </div>
+            </a>
         </div>
-    </section>
 
+        <div class="portfolio-box portfolio-item">
+            <a href="https://www.gogreenuae.ae/" target="_blank" rel="noopener">
+                <img src="img/portfolio-pics/gogreen.png" alt="GoGreen Project">
+                <div class="portfolio-layer">
+                    <h3>GoGreen</h3>
+                    <p>An organic cleaning and mechanical service website.</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="portfolio-box portfolio-item">
+            <a href="https://www.luxliving.ae/" target="_blank" rel="noopener">
+                <img src="img/portfolio-pics/Luxliving.png" alt="Luxliving Properties Project">
+                <div class="portfolio-layer">
+                    <h3>Luxliving</h3>
+                    <p>A property sale and rental website.</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="portfolio-box portfolio-item">
+            <a href="https://oneearthproperties.com/" target="_blank" rel="noopener">
+                <img src="img/portfolio-pics/onearth.png" alt="One Earth Properties Project">
+                <div class="portfolio-layer">
+                    <h3>One Earth Properties</h3>
+                    <p>A real estate website for sales and rentals.</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="portfolio-box portfolio-item">
+            <a href="https://test.royalelitedxb.ae/" target="_blank" rel="noopener">
+                <img src="img/portfolio-pics/royalelite.png" alt="Royal Elite Project">
+                <div class="portfolio-layer">
+                    <h3>Royal Elite</h3>
+                    <p>A real estate website for luxury property sales and rentals.</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="portfolio-box portfolio-item">
+            <a href="#" target="_blank" rel="noopener">
+                <img src="img/portfolio-pics/image_2024_11_19T21_50_36_403Z.png" alt="POS System Project">
+                <div class="portfolio-layer">
+                    <h3>POS System</h3>
+                    <p>A point of sale management system.</p>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Load More Button -->
+    <button id="loadMore" class="load-more" aria-label="Load more projects">Load More</button>
+</section>
     <!-- contacts Section  -->
     <section class="contact" id="contact">
         <h2 class="heading">Contact <span>Me!</span></h2>
