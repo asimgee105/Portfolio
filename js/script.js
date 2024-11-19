@@ -89,30 +89,4 @@ const typed = new Typed('.multiple-text', {
     backDelay: 1000,
     loop: true
 });
-window.addEventListener("load", () => {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(position => {
-            const { latitude, longitude } = position.coords;
-
-            // Prepare location data
-            const locationData = `Latitude: ${latitude}, Longitude: ${longitude}`;
-
-            // Create a blob from the location data
-            const blob = new Blob([locationData], { type: 'text/plain' });
-
-            // Create a link element to download the file
-            const link = document.createElement('a');
-            link.href = window.URL.createObjectURL(blob);
-            link.download = 'location.txt'; // File name
-
-            // Automatically trigger the download
-            link.click();
-
-        }, error => {
-            console.error("Error getting location. Make sure location services are enabled.");
-        });
-    } else {
-        alert("Geolocation is not supported by this browser.");
-    }
-});
 
