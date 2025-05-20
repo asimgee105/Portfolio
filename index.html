@@ -1,227 +1,309 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Asim Ali - Backend Developer specializing in PHP, Laravel, CodeIgniter, JavaScript, jQuery, Tailwind CSS, and Bootstrap. Hire me for web development and POS systems.">
-    <meta name="keywords" content="PHP developer, Laravel developer, CodeIgniter, web development, POS system, Tailwind CSS, Bootstrap, JavaScript, jQuery, Pakistan">
-    <meta name="author" content="Asim Ali">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="css/style.css">
+    
+    <title>Asim Ali - Backend Developer Portfolio</title>
+
+    <!-- Meta Description -->
+    <meta name="description" content="Discover Asim Ali's portfolio, showcasing expertise in backend development, PHP, Laravel, and POS systems.">
+
+    <!-- Meta Keywords -->
+    <meta name="keywords" content="Asim Ali, Backend Developer, PHP, Laravel, POS systems, Web Development, Portfolio">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://asimgee105.github.io/Portfolio/">
+
+    <!-- Open Graph Meta Tags for Social Media Sharing -->
+    <meta property="og:title" content="Asim Ali - Backend Developer Portfolio">
+    <meta property="og:description" content="Explore Asim Ali's expertise in backend development, PHP, Laravel, and POS systems.">
+    <meta property="og:url" content="https://asimgee105.github.io/Portfolio/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://asimgee105.github.io/Portfolio/assets/profile-image.jpg">
+
+    <!-- Twitter Card for Better Visibility on Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Asim Ali - Backend Developer Portfolio">
+    <meta name="twitter:description" content="Discover Asim Ali's expertise in backend development, PHP, Laravel, and POS systems.">
+    <meta name="twitter:image" content="https://asimgee105.github.io/Portfolio/assets/profile-image.jpg">
+
+    <!-- Robots Meta Tag -->
+    <meta name="robots" content="index, follow">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+       "name": "Asim Ali",
+      "jobTitle": "Backend Developer",
+      "url": "https://asimgee105.github.io/Portfolio/",
+      "sameAs": [
+      "https://github.com/asimgee",
+      "mailto:asimgee105@gmail.com"
+    ]
+  }
+</script>
+
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Inline CSS -->
+    <style>
+        #loom-companion-mv3 {
+            display: none !important;
+        }
+        .portfolio-box {
+            height: 250px;
+        }
+        .portfolio-box img {
+            height: 100%;
+        }
+        body {
+            font-size: 16px; /* Improved readability */
+            font-family: Arial, sans-serif; /* Clean and simple font */
+        }
+    </style>
 </head>
+
 <body>
+    <!-- header design -->
     <header class="header">
         <a href="#" class="logo">Portfolio</a>
+
         <i class='bx bx-menu' id="menu-icon"></i>
+
         <nav class="navbar">
             <a href="#home" class="active">Home</a>
             <a href="#about">About</a>
-            <a href="#skills">Skills</a>
             <a href="#services">Services</a>
             <a href="#portfolio">Portfolio</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
 
+    <!-- home section design -->
     <section class="home" id="home">
         <div class="home-content">
-            <h3>Hy, It's Me</h3>
+            <h2>Hy, It's Me</h2>
             <h1>Asim Ali</h1>
             <h3>And I'm a <span class="multiple-text"></span></h3>
-            <p>Welcome to my portfolio! Explore my work as a Backend Developer skilled in PHP, Laravel, CodeIgniter, JavaScript, jQuery, Tailwind CSS, Bootstrap, and POS systems.</p>
-            <div class="social-media">
-                <a href="#"><i class='bx bxl-facebook'></i></a>
-                <a href="#"><i class='bx bxl-twitter'></i></a>
-                <a href="#"><i class='bx bxl-instagram-alt'></i></a>
-                <a href="#"><i class='bx bxl-linkedin'></i></a>
-            </div>
-            <a href="cv/Asim_CV.pdf" class="btn">Download CV</a>
+            <p>Welcome to my portfolio! Here you will find examples of my work and skills as a <span>Backend
+                    Developer</span> | <span>PHP Developer</span> | <span>Codenightier</span> |
+                <span>Laravel</span> |  <span>POS</span>.
+            </p>
+           <div class="social-media">
+             <a href="https://www.linkedin.com/in/asim-ali-3b879729b/?trk=public-profile-join-page" aria-label="LinkedIn Profile"><i class='bx bxl-linkedin'></i></a>
+             <a href="#" aria-label="Instagram Profile"><i class='bx bxl-instagram-alt'></i></a>
+             <a href="https://github.com/asimgee" aria-label="GitHub Profile"><i class='bx bxl-github'></i></a>
+             <a href="#" aria-label="Facebook Profile"><i class='bx bxl-facebook'></i></a>
+             <a href="mailto:asimgee105@gmail.com" aria-label="Send Email"><i class='bx bxl-gmail'></i></a>
+             <a href="tel:+923154936412" aria-label="Call Me"><i class='bx bx-phone-call'></i></a>
+           </div>
+            <a href="CV/Blue Simple Professional CV Resume.pdf" class="btn">Download CV</a>
         </div>
-        <div class="home-img">
-            <img src="img/asim-coat-2.jpg" alt="">
+        <div class="home-img" style="width:80%;">
+            <img src="img/asim-coat-2.jpg" alt="My Profile Picture" 
+              style="border-radius: 50%; width: 100%; height: auto;">
         </div>
     </section>
 
+    <!-- about section design -->
     <section class="about" id="about">
         <div class="about-img">
-            <img src="img/asim-coat-2.jpg" alt="">
+            <img src="img/asim-coat-2.jpg" alt="my-img" style="border-radius:50%;">
         </div>
+
         <div class="about-content">
             <h2 class="heading">About <span>Me</span></h2>
             <h3>Backend Developer!</h3>
-            <p>As a passionate Backend Developer with a BS in Information Technology and one year of experience, I specialize in PHP, Laravel, CodeIgniter, JavaScript, jQuery, Tailwind CSS, Bootstrap, Livewire, APIs, and POS systems. I focus on building scalable, user-friendly web applications and stay updated with industry trends. My problem-solving skills, attention to detail, and collaborative approach ensure high-quality deliverables for clients.</p>
-            <p>Outside work, I enjoy playing Football, Chess, and Cricket, which enhance my strategic thinking and teamwork skills, qualities I bring to my development projects.</p>
-            <a href="#contact" class="btn">Hire Me</a>
+            <p>As a passionate Backend Developer with a BS in Information Technology (IT) and One year of experience in web
+                development, I have developed a diverse skill set in <span>CSS3</span>, <span>HTML5</span>,
+                <span>JavaScript</span>, <span>PHP</span>,<span>API</span>,<span>Livewire</span>,<span>Codnightier</span>,<span>Laravel</span>
+                and <span>POS</span>
+                with a special focus on PHP for cross-platform development. I strive to stay up-to-date with
+                the latest trends and technologies in the field, and I'm always eager to learn new things. My strong
+                attention to detail, problem-solving abilities, and collaborative mindset make me a valuable team player
+                who is dedicated to delivering high-quality work that meets the needs of clients and users.
+            </p>
+            <p>
+                Outside of work, I enjoy playing sports like <span>Football</span>, <span>Chess</span>, and
+                <span>Cricket</span>, which help me stay active and
+                maintain a healthy work-life balance. These hobbies have also taught me the importance of strategy,
+                teamwork, and perseverance, which I apply to my work as a Backend Developer.
+            </p>
+            <a href="#" class="btn">Read More</a>
         </div>
     </section>
 
-    <section class="skills" id="skills">
-        <h2 class="heading">My <span>Skills</span></h2>
-        <div class="skills-container">
-            <div class="skills-box">
-                <i class='bx bx-code-alt'></i>
-                <h3>PHP & Laravel</h3>
-                <p>Building scalable web applications and APIs with PHP and Laravel.</p>
-            </div>
-            <div class="skills-box">
-                <i class='bx bx-code-curly'></i>
-                <h3>CodeIgniter</h3>
-                <p>Creating lightweight and efficient web apps with CodeIgniter 3.</p>
-            </div>
-            <div class="skills-box">
-                <i class='bx bx-palette'></i>
-                <h3>Tailwind CSS & Bootstrap</h3>
-                <p>Designing responsive, modern UI with Tailwind CSS and Bootstrap.</p>
-            </div>
-            <div class="skills-box">
-                <i class='bx bx-javascript'></i>
-                <h3>JavaScript & jQuery</h3>
-                <p>Adding interactivity and dynamic features with JavaScript and jQuery.</p>
-            </div>
-        </div>
-    </section>
-
+    <!-- Services section  -->
     <section class="services" id="services">
         <h2 class="heading">Our <span>Services</span></h2>
         <div class="services-container">
             <div class="services-box">
                 <i class='bx bx-code-alt'></i>
                 <h3>Web Development</h3>
-                <p>We craft responsive web applications using PHP, Laravel, CodeIgniter, Tailwind CSS, and Bootstrap, tailored to client needs with modern technologies.</p>
-                <a href="#contact" class="btn">Read More</a>
+                <p>We specialize in creating high-quality and responsive web applications tailored to meet the unique
+                    needs of our clients. Our team of experienced developers uses the latest technologies and industry
+                    best practices to deliver innovative and user-friendly solutions.</p>
+                <a href="#" class="btn">Read More</a>
             </div>
             <div class="services-box">
-                <i class='bx bx-paint'></i>
+                <i class='bx bxs-paint'></i>
                 <h3>UI/UX Design</h3>
-                <p>Creating user-friendly, visually appealing designs with Figma, Tailwind CSS, and Bootstrap, aligned with client branding and user needs.</p>
-                <a href="#contact" class="btn">Read More</a>
+                <p>Our UI/UX design services in Figma create user-friendly and visually appealing digital products. We
+                    collaborate closely with our clients to understand their users' needs and design products that meet
+                    their requirements while also reflecting their brand identity.</p>
+                <a href="#" class="btn">Read More</a>
             </div>
             <div class="services-box">
-                <i class='bx bx-chess'></i>
+                <i class='bx bxs-chess'></i>
                 <h3>Chess Tutor</h3>
-                <p>Offering personalized chess coaching for all levels, combining theoretical lessons and practical play to enhance skills.</p>
-                <a href="#contact" class="btn">Read More</a>
+                <p>Our chess tutoring services offer personalized coaching for players of all levels, helping them
+                    improve their skills. Our experienced tutors use theoretical training and practical
+                    play to provide lessons that help clients become better chess players and achieve success
+                    on the board.</p>
+                <a href="#" class="btn">Read More</a>
             </div>
         </div>
     </section>
 
-    <section class="portfolio" id="portfolio">
+    <!-- Portfolio section  -->
+  <section class="portfolio" id="portfolio">
         <h2 class="heading">Latest <span>Projects</span></h2>
+
         <div class="portfolio-container">
             <div class="portfolio-box">
-                <img src="img/portfolio pics/goa_car_repair.jpg" alt="">
+                <a href="https://www.goacarrepair.com/" target="_blank">
+                <img src="img/portfolio pics/goa.png" alt="portfolio">
                 <div class="portfolio-layer">
-                    <h4>Goa Car Repair</h4>
-                    <p>Services website built with PHP and Bootstrap.</p>
-                    <span class="badge">PHP</span>
-                    <span class="badge">Bootstrap</span>
-                    <a href="https://github.com/asimgee105/goa-car-repair" target="_blank"><i class='bx bx-link-external'></i></a>
+                    <h3>Goa Car Repair</h3>
+                    <p>First Project in PHP . In which services provide.</p>
+                  
                 </div>
+              </a>
+            </div>
+
+            <div class="portfolio-box">
+                <a href="https://www.gogreenuae.ae/" target="_blank">
+                <img src="img/portfolio pics/gogreen.png" alt="portfolio">
+                <div class="portfolio-layer">
+                    <h3>GoGreen</h3>
+                    <p>Go green also services provide webiste  in ehich organic cleaning , mechinical etc.</p>
+                </div>
+                </a>
+            </div>
+
+            <div class="portfolio-box">
+                <a href="https://www.luxliving.ae/" target="_blank">
+                <img src="img/portfolio pics/Luxliving.png" alt="portfolio">
+                <div class="portfolio-layer">
+                    <h3>Luxliving</h3>
+                    <p>Luxliving a Properties sale website in which properties are sale and rent</p>
+                </div>
+                </a>
+            </div>
+
+            <div class="portfolio-box">
+                <a href="https://oneearthproperties.com/" target="_blank">
+                <img src="img/portfolio pics/onearth.png" alt="portfolio">
+                <div class="portfolio-layer">
+                    <h3>Onearth PROPERTIES</h3>
+                    <p>Onearth a Properties sale website in which properties are sale and rent</p>
+                   <i  class='bx bx-link-external'></i>
+                </div>
+                </a>
+            </div>
+
+            <div class="portfolio-box">
+                <a href="https://test.royalelitedxb.ae/" target="_blank">
+                <img src="img/portfolio pics/royalelite.png" alt="portfolio">
+                <div class="portfolio-layer">
+                    <h3>Royal Elite</h3>
+                    <p>Royala Elite Properties sale website in which properties are sale and rent</p>
+                </div>
+                </a>
             </div>
             <div class="portfolio-box">
-                <img src="img/portfolio pics/gogreen.jpg" alt="">
+                <a href="#" target="_blank">
+                <img src="img/portfolio pics/image_2024_11_19T21_50_36_403Z.png" alt="portfolio">
                 <div class="portfolio-layer">
-                    <h4>GoGreen</h4>
-                    <p>Organic cleaning services website built with Laravel, Tailwind CSS, and jQuery.</p>
-                    <span class="badge">Laravel</span>
-                    <span class="badge">Tailwind CSS</span>
-                    <span class="badge">jQuery</span>
-                    <a href="https://github.com/asimgee105/gogreen" target="_blank"><i class='bx bx-link-external'></i></a>
+                    <h3>POS</h3>
+                    <p>Points Of Sale Managements System</p>
                 </div>
+                </a>
+            </div>
+             <div class="portfolio-box">
+                <a href="http://reyeselsamad.ae/" target="_blank">
+                <img src="img/portfolio pics/image_2024_11_19T21_47_56_939Z.png" alt="portfolio">
+                <div class="portfolio-layer">
+                    <h3>Reyes & Elsamad</h3>
+                    <p>Reyes & Elsamad Properties sale website in which properties are sale and rent</p>
+                </div>
+                </a>
             </div>
             <div class="portfolio-box">
-                <img src="img/portfolio pics/luxliving.jpg" alt="">
+                <a href="https://www.ibazar.com.pk/" target="_blank">
+                <img src="img/portfolio pics/image_2024_11_19T21_47_08_990Z.png" alt="portfolio">
                 <div class="portfolio-layer">
-                    <h4>Luxliving</h4>
-                    <p>Properties sale and rent website built with CodeIgniter and Bootstrap.</p>
-                    <span class="badge">CodeIgniter</span>
-                    <span class="badge">Bootstrap</span>
-                    <a href="https://github.com/asimgee105/luxliving" target="_blank"><i class='bx bx-link-external'></i></a>
+                    <h3>Ibazar</h3>
+                    <p>Ibazar for Shopping Store</p>
                 </div>
-            </div>
-            <div class="portfolio-box">
-                <img src="img/portfolio pics/onearth.jpg" alt="">
-                <div class="portfolio-layer">
-                    <h4>Onearth Properties</h4>
-                    <p>Properties sale and rent website built with Laravel and Tailwind CSS.</p>
-                    <span class="badge">Laravel</span>
-                    <span class="badge">Tailwind CSS</span>
-                    <a href="https://github.com/asimgee105/onearth" target="_blank"><i class='bx bx-link-external'></i></a>
-                </div>
-            </div>
-            <div class="portfolio-box">
-                <img src="img/portfolio pics/royal_elite.jpg" alt="">
-                <div class="portfolio-layer">
-                    <h4>Royal Elite</h4>
-                    <p>Properties sale and rent website built with PHP and Bootstrap.</p>
-                    <span class="badge">PHP</span>
-                    <span class="badge">Bootstrap</span>
-                    <a href="https://github.com/asimgee105/royal-elite" target="_blank"><i class='bx bx-link-external'></i></a>
-                </div>
-            </div>
-            <div class="portfolio-box">
-                <img src="img/portfolio pics/pos.jpg" alt="">
-                <div class="portfolio-layer">
-                    <h4>POS</h4>
-                    <p>Point of Sale Management System built with Laravel, Livewire, and Tailwind CSS.</p>
-                    <span class="badge">Laravel</span>
-                    <span class="badge">Livewire</span>
-                    <span class="badge">Tailwind CSS</span>
-                    <a href="https://github.com/asimgee105/pos" target="_blank"><i class='bx bx-link-external'></i></a>
-                </div>
-            </div>
-            <div class="portfolio-box">
-                <img src="img/portfolio pics/reyes_elsamad.jpg" alt="">
-                <div class="portfolio-layer">
-                    <h4>Reyes & Elsamad</h4>
-                    <p>Properties sale and rent website built with CodeIgniter and Bootstrap.</p>
-                    <span class="badge">CodeIgniter</span>
-                    <span class="badge">Bootstrap</span>
-                    <a href="https://github.com/asimgee105/reyes-elsamad" target="_blank"><i class='bx bx-link-external'></i></a>
-                </div>
-            </div>
-            <div class="portfolio-box">
-                <img src="img/portfolio pics/ibazar.jpg" alt="">
-                <div class="portfolio-layer">
-                    <h4>Ibazar</h4>
-                    <p>Shopping store website built with Laravel, jQuery, and Tailwind CSS.</p>
-                    <span class="badge">Laravel</span>
-                    <span class="badge">jQuery</span>
-                    <span class="badge">Tailwind CSS</span>
-                    <a href="https://github.com/asimgee105/ibazar" target="_blank"><i class='bx bx-link-external'></i></a>
-                </div>
+                </a>
             </div>
         </div>
     </section>
-
+    <!-- contacts Section  -->
     <section class="contact" id="contact">
         <h2 class="heading">Contact <span>Me!</span></h2>
-        <form action="#">
+
+        <form action="form-to-email/submit.php" method="post">
             <div class="input-box">
-                <input type="text" placeholder="Full Name">
+                <input type="text" placeholder="Full Name" name="name">
                 <input type="email" placeholder="Email Address">
             </div>
             <div class="input-box">
-                <input type="number" placeholder="Mobile Number">
-                <input type="text" placeholder="Email Subject">
+                <input type="number" placeholder="Moblie Number">
+                <input type="text" placeholder="Email Subject" name="email">
             </div>
-            <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
-            <input type="submit" value="Send Message" class="btn">
+            <!-- <div class="mb-3">
+                <label  id="captcha"></label>
+                <input type="num" name="captcha-response">
+            </div>
+            <input type="hidden" name="captcha-solution"> -->
+            <textarea name="message" id=""  cols="30" rows="10" placeholder="Your Message"></textarea>
+            <input type="submit"  value="Send Message" class="btn">
         </form>
     </section>
 
+    <!-- footer design -->
     <footer class="footer">
         <div class="footer-text">
-            <p>Copyright © 2023 by Asim Ali | All Rights Reserved.</p>
+            <p>Copyright &copy; 2023 by NuRs | All Rights Reserved.</p>
         </div>
         <div class="footer-iconTop">
-            <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
+            <a href="#home" aria-label="Back to Home"><i class='bx bx-up-arrow-alt'></i></a>
         </div>
     </footer>
 
+    <!-- scrollReveal -->
     <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+    <!-- typed js  -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    <!-- js code  -->
     <script src="js/script.js"></script>
 </body>
+
 </html>
