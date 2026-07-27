@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laravel Security Best Practices: Securing Enterprise Web Apps | Asim Ali</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="A comprehensive guide on locking down enterprise Laravel systems. Learn how to secure inputs, prevent SQL injections, and configure secure headers.">
+    <meta name="keywords" content="Laravel Security, CSRF Protection, XSS Prevention, API Security, SSL Headers, Enterprise Security">
+    <meta name="author" content="Asim Ali">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://asimgee105.github.io/Portfolio/blog/laravel-security-best-practices.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://asimgee105.github.io/Portfolio/blog/laravel-security-best-practices.html">
+    <meta property="og:title" content="Laravel Security Best Practices: Securing Enterprise Web Apps | Asim Ali">
+    <meta property="og:description" content="A comprehensive guide on locking down enterprise Laravel systems. Learn how to secure inputs, prevent SQL injections, and configure secure headers.">
+    <meta property="og:image" content="https://asimgee105.github.io/Portfolio/blog/img/secure-ai.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://asimgee105.github.io/Portfolio/blog/laravel-security-best-practices.html">
+    <meta name="twitter:title" content="Laravel Security Best Practices: Securing Enterprise Web Apps | Asim Ali">
+    <meta name="twitter:description" content="A comprehensive guide on locking down enterprise Laravel systems. Learn how to secure inputs, prevent SQL injections, and configure secure headers.">
+    <meta name="twitter:image" content="https://asimgee105.github.io/Portfolio/blog/img/secure-ai.jpg">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon_io/favicon-16x16.png">
+
+    <!-- Fonts & Icons -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="../css/style.css?v=1.2">
+
+    <!-- JSON-LD Structured Data Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Laravel Security Best Practices: Securing Enterprise Web Apps",
+      "image": "https://asimgee105.github.io/Portfolio/blog/img/secure-ai.jpg",
+      "genre": "Software Engineering",
+      "keywords": "Laravel, Security, Enterprise, PHP",
+      "publisher": {
+        "@type": "Person",
+        "name": "Asim Ali",
+        "url": "https://asimgee105.github.io/Portfolio/"
+      },
+      "url": "https://asimgee105.github.io/Portfolio/blog/laravel-security-best-practices.html",
+      "datePublished": "2026-07-27",
+      "description": "A comprehensive guide on locking down enterprise Laravel systems. Learn how to secure inputs, prevent SQL injections, and configure secure headers.",
+      "author": {
+        "@type": "Person",
+        "name": "Asim Ali"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://asimgee105.github.io/Portfolio/blog/laravel-security-best-practices.html"
+      }
+    }
+    </script>
+</head>
+
+<body>
+    <div class="canvas-bg"></div>
+
+    <!-- Header Navigation -->
+    <header id="header">
+        <a href="../index.html" class="logo">ASIM <span class="text-gradient">ALI</span></a>
+
+        <nav>
+            <ul>
+                <li><a href="../index.html#home">Home</a></li>
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#skills">Skills</a></li>
+                <li><a href="../index.html#timeline">Journey</a></li>
+                <li><a href="../index.html#portfolio">Projects</a></li>
+                <li><a href="../index.html#github">GitHub</a></li>
+                <li><a href="index.html" class="active">Blog</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-controls">
+            <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+                <i class="bx bx-sun"></i>
+            </button>
+            <div id="menu-icon" aria-label="Toggle Menu">
+                <i data-lucide="menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="blog-content-single">
+        <article class="reveal">
+            <header class="blog-header">
+                <div class="blog-meta" style="justify-content: center;">
+                    <span><i class='bx bx-calendar'></i> July 28, 2026</span>
+                    <span><i class='bx bx-time'></i> 8 min read</span>
+                </div>
+                <h1>Laravel Security Best Practices: Securing Enterprise Web Apps</h1>
+                <div class="blog-header-meta">
+                    <span>Written by <strong>Asim Ali</strong></span>
+                </div>
+            </header>
+
+            <img src="img/secure-ai.jpg" alt="Laravel Security Best Practices: Securing Enterprise Web Apps Illustration" class="blog-post-img">
+
+            <div class="blog-post-body">
+                
+            <p>Security is the foundation of any enterprise application, particularly when serving clients in the US financial and healthcare sectors. Laravel provides a robust layer of protection out-of-the-box, but advanced configurations are required to thwart modern attack vectors.</p>
+            <h2>1. SQL Injection Prevention & Raw Queries</h2>
+            <p>While Laravel's Eloquent uses PDO parameter binding automatically, developers often write raw SQL expressions that open doors to injections. Always use bindings for raw expressions: <code>whereRaw('status = ?', [$status])</code> instead of concatenating variables.</p>
+            <h2>2. Content Security Policy (CSP) Headers</h2>
+            <p>Set secure response headers using middleware to prevent Cross-Site Scripting (XSS) and code injection threats.</p>
+        
+            </div>
+
+            <footer class="blog-share-section">
+                <div class="blog-tags">
+                    <span class="project-tag">Laravel</span>
+<span class="project-tag">Security</span>
+<span class="project-tag">Enterprise</span>
+<span class="project-tag">PHP</span>
+                </div>
+                <div class="blog-share-btns">
+                    <a href="https://twitter.com/share" target="_blank" class="blog-share-btn" aria-label="Share on X"><i class='bx bxl-twitter'></i></a>
+                    <a href="https://www.linkedin.com/shareArticle" target="_blank" class="blog-share-btn" aria-label="Share on LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                </div>
+            </footer>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Asim Ali. All Rights Reserved. Built for speed, optimized for search engines.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        lucide.createIcons();
+
+        // Theme Switcher for Blog
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = themeToggleBtn.querySelector('i');
+        
+        // Load initial theme
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            if (theme === 'light') {
+                themeIcon.className = 'bx bx-moon';
+            } else {
+                themeIcon.className = 'bx bx-sun';
+            }
+        }
+
+        // Inline Reveal Script (Safeguard)
+        function initReveal() {
+            const revealElements = document.querySelectorAll(".reveal, .reveal-left, .reveal-right, .reveal-scale");
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("active");
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.05,
+                rootMargin: "0px 0px -40px 0px"
+            });
+            revealElements.forEach(el => revealObserver.observe(el));
+        }
+        if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", initReveal);
+        } else {
+            initReveal();
+        }
+    </script>
+    <script src="../js/script.js?v=1.1"></script>
+</body>
+
+</html>

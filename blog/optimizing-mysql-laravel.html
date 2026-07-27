@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimizing MySQL Queries for High-Traffic Laravel Apps | Asim Ali</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="A technical guide on Laravel database optimization. Learn composite indexing, MySQL GIS ST_Distance_Sphere formulas, and profiling query execution plans.">
+    <meta name="keywords" content="Laravel Optimization, MySQL Indexing, ST_Distance_Sphere, Database Tuning, Query Profiling, Asim Ali Sahiwal">
+    <meta name="author" content="Asim Ali">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://asimgee105.github.io/Portfolio/blog/optimizing-mysql-laravel.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://asimgee105.github.io/Portfolio/blog/optimizing-mysql-laravel.html">
+    <meta property="og:title" content="Optimizing MySQL Queries for High-Traffic Laravel Apps | Asim Ali">
+    <meta property="og:description" content="A technical guide on Laravel database optimization. Learn composite indexing, MySQL GIS ST_Distance_Sphere formulas, and profiling query execution plans.">
+    <meta property="og:image" content="https://asimgee105.github.io/Portfolio/blog/img/mysql-optimize.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://asimgee105.github.io/Portfolio/blog/optimizing-mysql-laravel.html">
+    <meta name="twitter:title" content="Optimizing MySQL Queries for High-Traffic Laravel Apps | Asim Ali">
+    <meta name="twitter:description" content="A technical guide on Laravel database optimization. Learn composite indexing, MySQL GIS ST_Distance_Sphere formulas, and profiling query execution plans.">
+    <meta name="twitter:image" content="https://asimgee105.github.io/Portfolio/blog/img/mysql-optimize.jpg">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon_io/favicon-16x16.png">
+
+    <!-- Fonts & Icons -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="../css/style.css?v=1.2">
+
+    <!-- JSON-LD Structured Data Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Optimizing MySQL Queries for High-Traffic Laravel Apps",
+      "image": "https://asimgee105.github.io/Portfolio/blog/img/mysql-optimize.jpg",
+      "genre": "Software Engineering",
+      "keywords": "Laravel, MySQL, GIS, DB Tuning",
+      "publisher": {
+        "@type": "Person",
+        "name": "Asim Ali",
+        "url": "https://asimgee105.github.io/Portfolio/"
+      },
+      "url": "https://asimgee105.github.io/Portfolio/blog/optimizing-mysql-laravel.html",
+      "datePublished": "2026-07-27",
+      "description": "A technical guide on Laravel database optimization. Learn composite indexing, MySQL GIS ST_Distance_Sphere formulas, and profiling query execution plans.",
+      "author": {
+        "@type": "Person",
+        "name": "Asim Ali"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://asimgee105.github.io/Portfolio/blog/optimizing-mysql-laravel.html"
+      }
+    }
+    </script>
+</head>
+
+<body>
+    <div class="canvas-bg"></div>
+
+    <!-- Header Navigation -->
+    <header id="header">
+        <a href="../index.html" class="logo">ASIM <span class="text-gradient">ALI</span></a>
+
+        <nav>
+            <ul>
+                <li><a href="../index.html#home">Home</a></li>
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#skills">Skills</a></li>
+                <li><a href="../index.html#timeline">Journey</a></li>
+                <li><a href="../index.html#portfolio">Projects</a></li>
+                <li><a href="../index.html#github">GitHub</a></li>
+                <li><a href="index.html" class="active">Blog</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-controls">
+            <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+                <i class="bx bx-sun"></i>
+            </button>
+            <div id="menu-icon" aria-label="Toggle Menu">
+                <i data-lucide="menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="blog-content-single">
+        <article class="reveal">
+            <header class="blog-header">
+                <div class="blog-meta" style="justify-content: center;">
+                    <span><i class='bx bx-calendar'></i> July 25, 2026</span>
+                    <span><i class='bx bx-time'></i> 8 min read</span>
+                </div>
+                <h1>Optimizing MySQL Queries for High-Traffic Laravel Apps</h1>
+                <div class="blog-header-meta">
+                    <span>Written by <strong>Asim Ali</strong></span>
+                </div>
+            </header>
+
+            <img src="img/mysql-optimize.jpg" alt="Optimizing MySQL Queries for High-Traffic Laravel Apps Illustration" class="blog-post-img">
+
+            <div class="blog-post-body">
+                
+            <p>As Laravel applications scale, database queries are almost always the first major bottleneck. Eloquent's clean syntax makes prototyping fast, but it can easily hide complex joins, missing indexes, and heavy geospatial calculations. In this article, we'll dive into practical strategies to profile queries, configure composite indexes, and optimize location-based searches utilizing MySQL GIS functions.</p>
+
+            <h2>1. Profile Queries using the EXPLAIN Statement</h2>
+            <p>Before optimizing, you must analyze how MySQL executes your query. By prepending <code>EXPLAIN</code> to your raw SQL, MySQL returns its execution plan, highlighting which indexes are evaluated and how many rows are scanned.</p>
+            <pre><code>EXPLAIN SELECT * FROM businesses 
+WHERE category_id = 5 
+AND is_active = 1 
+ORDER BY rating_average DESC;</code></pre>
+            <p>Look at the <code>type</code> and <code>rows</code> columns in the explain results. If the type is <code>ALL</code>, MySQL is performing a full table scan. If it is <code>ref</code> or <code>range</code>, it is utilizing an index, which is highly desired.</p>
+
+            <h2>2. Designing High-Performance Composite Indexes</h2>
+            <p>When searching by multiple fields, creating single-column indexes on each field is not sufficient. MySQL can usually only use one index per query. Instead, you should create a <strong>composite index</strong> covering all search criteria.</p>
+            <p>The order of columns in a composite index is critical. Follow the equality-range-sort rule: put columns compared with equality first (<code>=</code>), columns compared with ranges second (<code>&gt;</code>, <code>&lt;</code>, <code>LIKE</code>), and sorting columns (<code>ORDER BY</code>) last.</p>
+            
+            <p>In Laravel, you can define composite indexes easily within your database migrations:</p>
+            <pre><code>Schema::table('businesses', function (Blueprint $table) {
+    // Composite index for active businesses in a category sorted by rating
+    $table->index(['category_id', 'is_active', 'rating_average']);
+});</code></pre>
+
+            <h2>3. Geospatial Map Searches and ST_Distance_Sphere</h2>
+            <p>A classic performance bottleneck in local directory portals is running geospatial coordinate math. A common mistake is using traditional mathematical formulas (like the Haversine equation) directly inside your SQL query. This prevents MySQL from using index optimization and forces a full table scan.</p>
+            
+            <p>Instead, store coordinates using the MySQL native <code>POINT</code> spatial data type and query distances using <code>ST_Distance_Sphere</code>:</p>
+            <pre><code>$latitude = 30.6777; // Sahiwal coordinates
+$longitude = 73.1026;
+
+$nearbyBusinesses = Business::query()
+    ->selectRaw("id, name, ST_Distance_Sphere(location, POINT(?, ?)) as distance", [$longitude, $latitude])
+    ->whereRaw("ST_Distance_Sphere(location, POINT(?, ?)) <= ?", [$longitude, $latitude, 5000]) // 5km radius
+    ->orderBy('distance')
+    ->get();</code></pre>
+            
+            <p>By mapping this point field to a Spatial Index in MySQL, queries on thousands of geographic coordinates return in under 100 milliseconds!</p>
+            
+            <blockquote>
+                "Database optimization is not about making SQL queries run faster on a strong machine; it is about writing structured indexes that prevent the database engine from reading redundant pages in memory."
+            </blockquote>
+        
+            </div>
+
+            <footer class="blog-share-section">
+                <div class="blog-tags">
+                    <span class="project-tag">Laravel</span>
+<span class="project-tag">MySQL</span>
+<span class="project-tag">GIS</span>
+<span class="project-tag">DB Tuning</span>
+                </div>
+                <div class="blog-share-btns">
+                    <a href="https://twitter.com/share" target="_blank" class="blog-share-btn" aria-label="Share on X"><i class='bx bxl-twitter'></i></a>
+                    <a href="https://www.linkedin.com/shareArticle" target="_blank" class="blog-share-btn" aria-label="Share on LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                </div>
+            </footer>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Asim Ali. All Rights Reserved. Built for speed, optimized for search engines.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        lucide.createIcons();
+
+        // Theme Switcher for Blog
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = themeToggleBtn.querySelector('i');
+        
+        // Load initial theme
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            if (theme === 'light') {
+                themeIcon.className = 'bx bx-moon';
+            } else {
+                themeIcon.className = 'bx bx-sun';
+            }
+        }
+
+        // Inline Reveal Script (Safeguard)
+        function initReveal() {
+            const revealElements = document.querySelectorAll(".reveal, .reveal-left, .reveal-right, .reveal-scale");
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("active");
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.05,
+                rootMargin: "0px 0px -40px 0px"
+            });
+            revealElements.forEach(el => revealObserver.observe(el));
+        }
+        if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", initReveal);
+        } else {
+            initReveal();
+        }
+    </script>
+    <script src="../js/script.js?v=1.1"></script>
+</body>
+
+</html>

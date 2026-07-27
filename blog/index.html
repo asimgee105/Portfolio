@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Blog & Engineering Insights | Asim Ali</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="In-depth technical articles on PHP/Laravel optimization, offline-first architectures using IndexedDB, background Redis queues, and secure AI API integrations.">
+    <meta name="keywords" content="Laravel Optimization, MySQL Indexing, IndexedDB POS, Laravel Redis Queues, OpenAI Laravel, Backend Blog, Asim Ali">
+    <meta name="author" content="Asim Ali">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://asimgee105.github.io/Portfolio/blog/index.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://asimgee105.github.io/Portfolio/blog/index.html">
+    <meta property="og:title" content="Technical Blog & Engineering Insights | Asim Ali">
+    <meta property="og:description" content="Read deep-dives into database query optimizations, offline syncing pipelines, and custom AI agent setups.">
+    <meta property="og:image" content="https://asimgee105.github.io/Portfolio/img/asim-workspace-new.webp">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://asimgee105.github.io/Portfolio/blog/index.html">
+    <meta name="twitter:title" content="Technical Blog & Engineering Insights | Asim Ali">
+    <meta name="twitter:description" content="Read deep-dives into database query optimizations, offline syncing pipelines, and custom AI agent setups.">
+    <meta name="twitter:image" content="https://asimgee105.github.io/Portfolio/img/asim-workspace-new.webp">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon_io/favicon-16x16.png">
+
+    <!-- Fonts & Icons -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="../css/style.css?v=1.2">
+
+    <!-- JSON-LD Structured Data Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Asim Ali Engineering Insights",
+      "url": "https://asimgee105.github.io/Portfolio/blog/index.html",
+      "description": "Deep technical articles on database tuning, offline architectures, and queue worker optimization.",
+      "publisher": {
+        "@type": "Person",
+        "name": "Asim Ali",
+        "url": "https://asimgee105.github.io/Portfolio/"
+      },
+      "blogPost": [
+  {
+    "@type": "BlogPosting",
+    "headline": "Optimizing MySQL Queries for High-Traffic Laravel Apps",
+    "url": "https://asimgee105.github.io/Portfolio/blog/optimizing-mysql-laravel.html",
+    "datePublished": "2026-07-27"
+  },
+  {
+    "@type": "BlogPosting",
+    "headline": "Building Offline-First POS Systems with IndexedDB",
+    "url": "https://asimgee105.github.io/Portfolio/blog/offline-pos-indexeddb.html",
+    "datePublished": "2026-07-27"
+  },
+  {
+    "@type": "BlogPosting",
+    "headline": "Architecting Background Sync Queues in Laravel",
+    "url": "https://asimgee105.github.io/Portfolio/blog/laravel-queues-background-sync.html",
+    "datePublished": "2026-07-27"
+  },
+  {
+    "@type": "BlogPosting",
+    "headline": "Secure and Cost-Effective AI API Integrations in Laravel",
+    "url": "https://asimgee105.github.io/Portfolio/blog/ai-api-integration-laravel.html",
+    "datePublished": "2026-07-27"
+  },
+  {
+    "@type": "BlogPosting",
+    "headline": "Laravel Security Best Practices: Securing Enterprise Web Apps",
+    "url": "https://asimgee105.github.io/Portfolio/blog/laravel-security-best-practices.html",
+    "datePublished": "2026-07-27"
+  },
+  {
+    "@type": "BlogPosting",
+    "headline": "Database Scaling: Implementing Read-Write Splitting in Laravel",
+    "url": "https://asimgee105.github.io/Portfolio/blog/database-scaling-read-write-splitting.html",
+    "datePublished": "2026-07-27"
+  },
+  {
+    "@type": "BlogPosting",
+    "headline": "High-Performance Redis Caching Patterns for PHP Applications",
+    "url": "https://asimgee105.github.io/Portfolio/blog/high-performance-redis-caching-patterns.html",
+    "datePublished": "2026-07-27"
+  },
+  {
+    "@type": "BlogPosting",
+    "headline": "Reliable Stripe Integrations: Designing Fault-Tolerant Webhooks",
+    "url": "https://asimgee105.github.io/Portfolio/blog/reliable-stripe-integrations-webhooks.html",
+    "datePublished": "2026-07-27"
+  },
+  {
+    "@type": "BlogPosting",
+    "headline": "Optimizing REST API Latency to Under 50 Milliseconds",
+    "url": "https://asimgee105.github.io/Portfolio/blog/optimizing-rest-api-latency.html",
+    "datePublished": "2026-07-27"
+  },
+  {
+    "@type": "BlogPosting",
+    "headline": "Zero-Downtime Database Migrations in Large-Scale SQL Apps",
+    "url": "https://asimgee105.github.io/Portfolio/blog/zero-downtime-database-migrations.html",
+    "datePublished": "2026-07-27"
+  },
+  {
+    "@type": "BlogPosting",
+    "headline": "Headless Browser Scraping: Managing Proxies and Rate Limits",
+    "url": "https://asimgee105.github.io/Portfolio/blog/headless-browser-scraping-proxies.html",
+    "datePublished": "2026-07-27"
+  },
+  {
+    "@type": "BlogPosting",
+    "headline": "Containerizing Laravel: Production-Ready Docker Configurations",
+    "url": "https://asimgee105.github.io/Portfolio/blog/containerizing-laravel-docker.html",
+    "datePublished": "2026-07-27"
+  },
+  {
+    "@type": "BlogPosting",
+    "headline": "Deploying PHP Applications on AWS Elastic Beanstalk",
+    "url": "https://asimgee105.github.io/Portfolio/blog/deploying-php-aws-elastic-beanstalk.html",
+    "datePublished": "2026-07-27"
+  },
+  {
+    "@type": "BlogPosting",
+    "headline": "Writing Testable PHP 8 Code: Unit and Integration Testing",
+    "url": "https://asimgee105.github.io/Portfolio/blog/writing-testable-php8-code.html",
+    "datePublished": "2026-07-27"
+  },
+  {
+    "@type": "BlogPosting",
+    "headline": "OAuth2 and JWT Authentication in PHP Microservices",
+    "url": "https://asimgee105.github.io/Portfolio/blog/oauth2-jwt-authentication-microservices.html",
+    "datePublished": "2026-07-27"
+  },
+  {
+    "@type": "BlogPosting",
+    "headline": "Eliminating N+1 Queries in Eloquent ORM: Practical Profiling",
+    "url": "https://asimgee105.github.io/Portfolio/blog/eliminating-n-plus-1-queries.html",
+    "datePublished": "2026-07-27"
+  },
+  {
+    "@type": "BlogPosting",
+    "headline": "Full-Text Search Scaling with Elasticsearch and Laravel Scout",
+    "url": "https://asimgee105.github.io/Portfolio/blog/full-text-search-elasticsearch-scout.html",
+    "datePublished": "2026-07-27"
+  },
+  {
+    "@type": "BlogPosting",
+    "headline": "Event-Driven Architectures in PHP using RabbitMQ",
+    "url": "https://asimgee105.github.io/Portfolio/blog/event-driven-architectures-rabbitmq.html",
+    "datePublished": "2026-07-27"
+  },
+  {
+    "@type": "BlogPosting",
+    "headline": "Real-Time Performance Monitoring: New Relic and Sentry",
+    "url": "https://asimgee105.github.io/Portfolio/blog/real-time-performance-monitoring.html",
+    "datePublished": "2026-07-27"
+  },
+  {
+    "@type": "BlogPosting",
+    "headline": "Automated CI/CD Pipelines for PHP using GitHub Actions",
+    "url": "https://asimgee105.github.io/Portfolio/blog/automated-ci-cd-pipelines-php.html",
+    "datePublished": "2026-07-27"
+  }
+]
+    }
+    </script>
+</head>
+
+<body>
+    <div class="canvas-bg"></div>
+
+    <!-- Header Navigation -->
+    <header id="header">
+        <a href="../index.html" class="logo">ASIM <span class="text-gradient">ALI</span></a>
+
+        <nav>
+            <ul>
+                <li><a href="../index.html#home">Home</a></li>
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#skills">Skills</a></li>
+                <li><a href="../index.html#timeline">Journey</a></li>
+                <li><a href="../index.html#portfolio">Projects</a></li>
+                <li><a href="../index.html#github">GitHub</a></li>
+                <li><a href="index.html" class="active">Blog</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-controls">
+            <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+                <i class="bx bx-sun"></i>
+            </button>
+            <div id="menu-icon" aria-label="Toggle Menu">
+                <i data-lucide="menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Blog Home Section -->
+    <main class="container" style="padding-top: 100px; padding-bottom: 40px;">
+        <div class="section-title reveal-scale">
+            <h1>Engineering <span class="text-gradient">Insights</span></h1>
+            <p>Practical guides and software case studies on backend scaling, local caches, and secure AI pipelines</p>
+        </div>
+
+        <div class="blog-grid stagger-grid">
+            
+            <!-- Article Card: Optimizing MySQL Queries for High-Traffic Laravel Apps -->
+            <article class="project-card glass blog-card">
+                <div class="project-img">
+                    <a href="optimizing-mysql-laravel.html">
+                        <img src="img/mysql-optimize.jpg" alt="Optimizing MySQL Queries for High-Traffic Laravel Apps" loading="lazy">
+                    </a>
+                </div>
+                <div class="project-content">
+                    <div class="blog-meta">
+                        <span><i class='bx bx-calendar'></i> July 25, 2026</span>
+                        <span><i class='bx bx-time'></i> 8 min read</span>
+                    </div>
+                    <h3><a href="optimizing-mysql-laravel.html" class="text-primary-hover" style="color: inherit; text-decoration: none;">Optimizing MySQL Queries for High-Traffic Laravel Apps</a></h3>
+                    <p>A technical guide on Laravel database optimization. Learn composite indexing, MySQL GIS ST_Distance_Sphere formulas, and profiling query execution plans.</p>
+                    <div class="project-tags" style="margin: 1rem 0;">
+                        <span class="project-tag">Laravel</span>
+<span class="project-tag">MySQL</span>
+<span class="project-tag">GIS</span>
+<span class="project-tag">DB Tuning</span>
+                    </div>
+                    <div class="project-btn-group" style="margin-top: auto;">
+                        <a href="optimizing-mysql-laravel.html" class="btn-primary" style="text-decoration: none;">Read Article</a>
+                    </div>
+                </div>
+            </article>
+    
+
+            <!-- Article Card: Building Offline-First POS Systems with IndexedDB -->
+            <article class="project-card glass blog-card">
+                <div class="project-img">
+                    <a href="offline-pos-indexeddb.html">
+                        <img src="img/offline-indexeddb.jpg" alt="Building Offline-First POS Systems with IndexedDB" loading="lazy">
+                    </a>
+                </div>
+                <div class="project-content">
+                    <div class="blog-meta">
+                        <span><i class='bx bx-calendar'></i> July 26, 2026</span>
+                        <span><i class='bx bx-time'></i> 10 min read</span>
+                    </div>
+                    <h3><a href="offline-pos-indexeddb.html" class="text-primary-hover" style="color: inherit; text-decoration: none;">Building Offline-First POS Systems with IndexedDB</a></h3>
+                    <p>A technical guide on building offline-first web systems. Learn how to store local sales ledgers in browser IndexedDB caches and sync online.</p>
+                    <div class="project-tags" style="margin: 1rem 0;">
+                        <span class="project-tag">JavaScript</span>
+<span class="project-tag">IndexedDB</span>
+<span class="project-tag">PWA</span>
+<span class="project-tag">Offline Sync</span>
+                    </div>
+                    <div class="project-btn-group" style="margin-top: auto;">
+                        <a href="offline-pos-indexeddb.html" class="btn-primary" style="text-decoration: none;">Read Article</a>
+                    </div>
+                </div>
+            </article>
+    
+
+            <!-- Article Card: Architecting Background Sync Queues in Laravel -->
+            <article class="project-card glass blog-card">
+                <div class="project-img">
+                    <a href="laravel-queues-background-sync.html">
+                        <img src="img/laravel-queues.jpg" alt="Architecting Background Sync Queues in Laravel" loading="lazy">
+                    </a>
+                </div>
+                <div class="project-content">
+                    <div class="blog-meta">
+                        <span><i class='bx bx-calendar'></i> July 27, 2026</span>
+                        <span><i class='bx bx-time'></i> 9 min read</span>
+                    </div>
+                    <h3><a href="laravel-queues-background-sync.html" class="text-primary-hover" style="color: inherit; text-decoration: none;">Architecting Background Sync Queues in Laravel</a></h3>
+                    <p>A backend engineer guide on processing massive XML data feeds using Laravel background jobs and Redis queues without server timeout crashes.</p>
+                    <div class="project-tags" style="margin: 1rem 0;">
+                        <span class="project-tag">Laravel</span>
+<span class="project-tag">Redis</span>
+<span class="project-tag">Queues</span>
+<span class="project-tag">XML Sync</span>
+                    </div>
+                    <div class="project-btn-group" style="margin-top: auto;">
+                        <a href="laravel-queues-background-sync.html" class="btn-primary" style="text-decoration: none;">Read Article</a>
+                    </div>
+                </div>
+            </article>
+    
+
+            <!-- Article Card: Secure and Cost-Effective AI API Integrations in Laravel -->
+            <article class="project-card glass blog-card">
+                <div class="project-img">
+                    <a href="ai-api-integration-laravel.html">
+                        <img src="img/secure-ai.jpg" alt="Secure and Cost-Effective AI API Integrations in Laravel" loading="lazy">
+                    </a>
+                </div>
+                <div class="project-content">
+                    <div class="blog-meta">
+                        <span><i class='bx bx-calendar'></i> July 27, 2026</span>
+                        <span><i class='bx bx-time'></i> 7 min read</span>
+                    </div>
+                    <h3><a href="ai-api-integration-laravel.html" class="text-primary-hover" style="color: inherit; text-decoration: none;">Secure and Cost-Effective AI API Integrations in Laravel</a></h3>
+                    <p>A guide on integrating OpenAI GPT model APIs in PHP. Learn token cost optimization, prompt sanitization security, and Redis cache response structures.</p>
+                    <div class="project-tags" style="margin: 1rem 0;">
+                        <span class="project-tag">PHP</span>
+<span class="project-tag">OpenAI</span>
+<span class="project-tag">Security</span>
+<span class="project-tag">AI Integration</span>
+                    </div>
+                    <div class="project-btn-group" style="margin-top: auto;">
+                        <a href="ai-api-integration-laravel.html" class="btn-primary" style="text-decoration: none;">Read Article</a>
+                    </div>
+                </div>
+            </article>
+    
+
+            <!-- Article Card: Laravel Security Best Practices: Securing Enterprise Web Apps -->
+            <article class="project-card glass blog-card">
+                <div class="project-img">
+                    <a href="laravel-security-best-practices.html">
+                        <img src="img/secure-ai.jpg" alt="Laravel Security Best Practices: Securing Enterprise Web Apps" loading="lazy">
+                    </a>
+                </div>
+                <div class="project-content">
+                    <div class="blog-meta">
+                        <span><i class='bx bx-calendar'></i> July 28, 2026</span>
+                        <span><i class='bx bx-time'></i> 8 min read</span>
+                    </div>
+                    <h3><a href="laravel-security-best-practices.html" class="text-primary-hover" style="color: inherit; text-decoration: none;">Laravel Security Best Practices: Securing Enterprise Web Apps</a></h3>
+                    <p>A comprehensive guide on locking down enterprise Laravel systems. Learn how to secure inputs, prevent SQL injections, and configure secure headers.</p>
+                    <div class="project-tags" style="margin: 1rem 0;">
+                        <span class="project-tag">Laravel</span>
+<span class="project-tag">Security</span>
+<span class="project-tag">Enterprise</span>
+<span class="project-tag">PHP</span>
+                    </div>
+                    <div class="project-btn-group" style="margin-top: auto;">
+                        <a href="laravel-security-best-practices.html" class="btn-primary" style="text-decoration: none;">Read Article</a>
+                    </div>
+                </div>
+            </article>
+    
+
+            <!-- Article Card: Database Scaling: Implementing Read-Write Splitting in Laravel -->
+            <article class="project-card glass blog-card">
+                <div class="project-img">
+                    <a href="database-scaling-read-write-splitting.html">
+                        <img src="img/mysql-optimize.jpg" alt="Database Scaling: Implementing Read-Write Splitting in Laravel" loading="lazy">
+                    </a>
+                </div>
+                <div class="project-content">
+                    <div class="blog-meta">
+                        <span><i class='bx bx-calendar'></i> July 29, 2026</span>
+                        <span><i class='bx bx-time'></i> 9 min read</span>
+                    </div>
+                    <h3><a href="database-scaling-read-write-splitting.html" class="text-primary-hover" style="color: inherit; text-decoration: none;">Database Scaling: Implementing Read-Write Splitting in Laravel</a></h3>
+                    <p>Learn how to configure read and write database connections in Laravel to balance heavy SQL loads and boost app performance.</p>
+                    <div class="project-tags" style="margin: 1rem 0;">
+                        <span class="project-tag">Laravel</span>
+<span class="project-tag">MySQL</span>
+<span class="project-tag">Database</span>
+<span class="project-tag">Scaling</span>
+                    </div>
+                    <div class="project-btn-group" style="margin-top: auto;">
+                        <a href="database-scaling-read-write-splitting.html" class="btn-primary" style="text-decoration: none;">Read Article</a>
+                    </div>
+                </div>
+            </article>
+    
+
+            <!-- Article Card: High-Performance Redis Caching Patterns for PHP Applications -->
+            <article class="project-card glass blog-card">
+                <div class="project-img">
+                    <a href="high-performance-redis-caching-patterns.html">
+                        <img src="img/laravel-queues.jpg" alt="High-Performance Redis Caching Patterns for PHP Applications" loading="lazy">
+                    </a>
+                </div>
+                <div class="project-content">
+                    <div class="blog-meta">
+                        <span><i class='bx bx-calendar'></i> July 30, 2026</span>
+                        <span><i class='bx bx-time'></i> 7 min read</span>
+                    </div>
+                    <h3><a href="high-performance-redis-caching-patterns.html" class="text-primary-hover" style="color: inherit; text-decoration: none;">High-Performance Redis Caching Patterns for PHP Applications</a></h3>
+                    <p>Explore advanced caching strategies with Redis in PHP. Learn about cache stampede prevention, tagging, and optimizing network roundtrips.</p>
+                    <div class="project-tags" style="margin: 1rem 0;">
+                        <span class="project-tag">Redis</span>
+<span class="project-tag">PHP</span>
+<span class="project-tag">Caching</span>
+<span class="project-tag">Performance</span>
+                    </div>
+                    <div class="project-btn-group" style="margin-top: auto;">
+                        <a href="high-performance-redis-caching-patterns.html" class="btn-primary" style="text-decoration: none;">Read Article</a>
+                    </div>
+                </div>
+            </article>
+    
+
+            <!-- Article Card: Reliable Stripe Integrations: Designing Fault-Tolerant Webhooks -->
+            <article class="project-card glass blog-card">
+                <div class="project-img">
+                    <a href="reliable-stripe-integrations-webhooks.html">
+                        <img src="img/secure-ai.jpg" alt="Reliable Stripe Integrations: Designing Fault-Tolerant Webhooks" loading="lazy">
+                    </a>
+                </div>
+                <div class="project-content">
+                    <div class="blog-meta">
+                        <span><i class='bx bx-calendar'></i> August 01, 2026</span>
+                        <span><i class='bx bx-time'></i> 10 min read</span>
+                    </div>
+                    <h3><a href="reliable-stripe-integrations-webhooks.html" class="text-primary-hover" style="color: inherit; text-decoration: none;">Reliable Stripe Integrations: Designing Fault-Tolerant Webhooks</a></h3>
+                    <p>A developer guide on building resilient Stripe payment systems in PHP. Learn webhook verification, retry handlers, and transaction checks.</p>
+                    <div class="project-tags" style="margin: 1rem 0;">
+                        <span class="project-tag">Stripe</span>
+<span class="project-tag">PHP</span>
+<span class="project-tag">Payments</span>
+<span class="project-tag">API Integration</span>
+                    </div>
+                    <div class="project-btn-group" style="margin-top: auto;">
+                        <a href="reliable-stripe-integrations-webhooks.html" class="btn-primary" style="text-decoration: none;">Read Article</a>
+                    </div>
+                </div>
+            </article>
+    
+
+            <!-- Article Card: Optimizing REST API Latency to Under 50 Milliseconds -->
+            <article class="project-card glass blog-card">
+                <div class="project-img">
+                    <a href="optimizing-rest-api-latency.html">
+                        <img src="img/mysql-optimize.jpg" alt="Optimizing REST API Latency to Under 50 Milliseconds" loading="lazy">
+                    </a>
+                </div>
+                <div class="project-content">
+                    <div class="blog-meta">
+                        <span><i class='bx bx-calendar'></i> August 03, 2026</span>
+                        <span><i class='bx bx-time'></i> 6 min read</span>
+                    </div>
+                    <h3><a href="optimizing-rest-api-latency.html" class="text-primary-hover" style="color: inherit; text-decoration: none;">Optimizing REST API Latency to Under 50 Milliseconds</a></h3>
+                    <p>Learn how to optimize response times in REST APIs. Covers eager loading database rows, response caching, compression, and lightweight routing.</p>
+                    <div class="project-tags" style="margin: 1rem 0;">
+                        <span class="project-tag">API Design</span>
+<span class="project-tag">Performance</span>
+<span class="project-tag">PHP</span>
+<span class="project-tag">Laravel</span>
+                    </div>
+                    <div class="project-btn-group" style="margin-top: auto;">
+                        <a href="optimizing-rest-api-latency.html" class="btn-primary" style="text-decoration: none;">Read Article</a>
+                    </div>
+                </div>
+            </article>
+    
+
+            <!-- Article Card: Zero-Downtime Database Migrations in Large-Scale SQL Apps -->
+            <article class="project-card glass blog-card">
+                <div class="project-img">
+                    <a href="zero-downtime-database-migrations.html">
+                        <img src="img/mysql-optimize.jpg" alt="Zero-Downtime Database Migrations in Large-Scale SQL Apps" loading="lazy">
+                    </a>
+                </div>
+                <div class="project-content">
+                    <div class="blog-meta">
+                        <span><i class='bx bx-calendar'></i> August 05, 2026</span>
+                        <span><i class='bx bx-time'></i> 9 min read</span>
+                    </div>
+                    <h3><a href="zero-downtime-database-migrations.html" class="text-primary-hover" style="color: inherit; text-decoration: none;">Zero-Downtime Database Migrations in Large-Scale SQL Apps</a></h3>
+                    <p>A guide on altering large database tables without locking reads/writes. Covers the expand-and-contract pattern and online schemas modification.</p>
+                    <div class="project-tags" style="margin: 1rem 0;">
+                        <span class="project-tag">MySQL</span>
+<span class="project-tag">Database</span>
+<span class="project-tag">Scaling</span>
+<span class="project-tag">Migrations</span>
+                    </div>
+                    <div class="project-btn-group" style="margin-top: auto;">
+                        <a href="zero-downtime-database-migrations.html" class="btn-primary" style="text-decoration: none;">Read Article</a>
+                    </div>
+                </div>
+            </article>
+    
+
+            <!-- Article Card: Headless Browser Scraping: Managing Proxies and Rate Limits -->
+            <article class="project-card glass blog-card">
+                <div class="project-img">
+                    <a href="headless-browser-scraping-proxies.html">
+                        <img src="img/laravel-queues.jpg" alt="Headless Browser Scraping: Managing Proxies and Rate Limits" loading="lazy">
+                    </a>
+                </div>
+                <div class="project-content">
+                    <div class="blog-meta">
+                        <span><i class='bx bx-calendar'></i> August 07, 2026</span>
+                        <span><i class='bx bx-time'></i> 8 min read</span>
+                    </div>
+                    <h3><a href="headless-browser-scraping-proxies.html" class="text-primary-hover" style="color: inherit; text-decoration: none;">Headless Browser Scraping: Managing Proxies and Rate Limits</a></h3>
+                    <p>Learn how to scrape target feeds reliably in PHP using headless browsers, rotating proxy pools, and rate-limiting scripts.</p>
+                    <div class="project-tags" style="margin: 1rem 0;">
+                        <span class="project-tag">PHP</span>
+<span class="project-tag">Scraping</span>
+<span class="project-tag">API Design</span>
+<span class="project-tag">Network</span>
+                    </div>
+                    <div class="project-btn-group" style="margin-top: auto;">
+                        <a href="headless-browser-scraping-proxies.html" class="btn-primary" style="text-decoration: none;">Read Article</a>
+                    </div>
+                </div>
+            </article>
+    
+
+            <!-- Article Card: Containerizing Laravel: Production-Ready Docker Configurations -->
+            <article class="project-card glass blog-card">
+                <div class="project-img">
+                    <a href="containerizing-laravel-docker.html">
+                        <img src="img/laravel-queues.jpg" alt="Containerizing Laravel: Production-Ready Docker Configurations" loading="lazy">
+                    </a>
+                </div>
+                <div class="project-content">
+                    <div class="blog-meta">
+                        <span><i class='bx bx-calendar'></i> August 09, 2026</span>
+                        <span><i class='bx bx-time'></i> 7 min read</span>
+                    </div>
+                    <h3><a href="containerizing-laravel-docker.html" class="text-primary-hover" style="color: inherit; text-decoration: none;">Containerizing Laravel: Production-Ready Docker Configurations</a></h3>
+                    <p>A walkthrough on containerizing Laravel applications using Docker, Nginx, PHP-FPM, and Redis for uniform developer environments.</p>
+                    <div class="project-tags" style="margin: 1rem 0;">
+                        <span class="project-tag">Docker</span>
+<span class="project-tag">DevOps</span>
+<span class="project-tag">Laravel</span>
+<span class="project-tag">SysAdmin</span>
+                    </div>
+                    <div class="project-btn-group" style="margin-top: auto;">
+                        <a href="containerizing-laravel-docker.html" class="btn-primary" style="text-decoration: none;">Read Article</a>
+                    </div>
+                </div>
+            </article>
+    
+
+            <!-- Article Card: Deploying PHP Applications on AWS Elastic Beanstalk -->
+            <article class="project-card glass blog-card">
+                <div class="project-img">
+                    <a href="deploying-php-aws-elastic-beanstalk.html">
+                        <img src="img/laravel-queues.jpg" alt="Deploying PHP Applications on AWS Elastic Beanstalk" loading="lazy">
+                    </a>
+                </div>
+                <div class="project-content">
+                    <div class="blog-meta">
+                        <span><i class='bx bx-calendar'></i> August 11, 2026</span>
+                        <span><i class='bx bx-time'></i> 8 min read</span>
+                    </div>
+                    <h3><a href="deploying-php-aws-elastic-beanstalk.html" class="text-primary-hover" style="color: inherit; text-decoration: none;">Deploying PHP Applications on AWS Elastic Beanstalk</a></h3>
+                    <p>A setup guide to deploy scalable PHP/Laravel applications on AWS Elastic Beanstalk with RDS MySQL databases and load balancers.</p>
+                    <div class="project-tags" style="margin: 1rem 0;">
+                        <span class="project-tag">AWS</span>
+<span class="project-tag">DevOps</span>
+<span class="project-tag">Cloud</span>
+<span class="project-tag">Laravel</span>
+                    </div>
+                    <div class="project-btn-group" style="margin-top: auto;">
+                        <a href="deploying-php-aws-elastic-beanstalk.html" class="btn-primary" style="text-decoration: none;">Read Article</a>
+                    </div>
+                </div>
+            </article>
+    
+
+            <!-- Article Card: Writing Testable PHP 8 Code: Unit and Integration Testing -->
+            <article class="project-card glass blog-card">
+                <div class="project-img">
+                    <a href="writing-testable-php8-code.html">
+                        <img src="img/secure-ai.jpg" alt="Writing Testable PHP 8 Code: Unit and Integration Testing" loading="lazy">
+                    </a>
+                </div>
+                <div class="project-content">
+                    <div class="blog-meta">
+                        <span><i class='bx bx-calendar'></i> August 13, 2026</span>
+                        <span><i class='bx bx-time'></i> 7 min read</span>
+                    </div>
+                    <h3><a href="writing-testable-php8-code.html" class="text-primary-hover" style="color: inherit; text-decoration: none;">Writing Testable PHP 8 Code: Unit and Integration Testing</a></h3>
+                    <p>Learn how to write clean, modular, testable PHP 8 code and implement comprehensive unit tests with PHPUnit.</p>
+                    <div class="project-tags" style="margin: 1rem 0;">
+                        <span class="project-tag">Testing</span>
+<span class="project-tag">PHP 8</span>
+<span class="project-tag">PHPUnit</span>
+<span class="project-tag">Clean Code</span>
+                    </div>
+                    <div class="project-btn-group" style="margin-top: auto;">
+                        <a href="writing-testable-php8-code.html" class="btn-primary" style="text-decoration: none;">Read Article</a>
+                    </div>
+                </div>
+            </article>
+    
+
+            <!-- Article Card: OAuth2 and JWT Authentication in PHP Microservices -->
+            <article class="project-card glass blog-card">
+                <div class="project-img">
+                    <a href="oauth2-jwt-authentication-microservices.html">
+                        <img src="img/secure-ai.jpg" alt="OAuth2 and JWT Authentication in PHP Microservices" loading="lazy">
+                    </a>
+                </div>
+                <div class="project-content">
+                    <div class="blog-meta">
+                        <span><i class='bx bx-calendar'></i> August 15, 2026</span>
+                        <span><i class='bx bx-time'></i> 9 min read</span>
+                    </div>
+                    <h3><a href="oauth2-jwt-authentication-microservices.html" class="text-primary-hover" style="color: inherit; text-decoration: none;">OAuth2 and JWT Authentication in PHP Microservices</a></h3>
+                    <p>A deep dive into secure authentication architectures. Learn how to configure JWT authorization tokens and OAuth2 grant pipelines.</p>
+                    <div class="project-tags" style="margin: 1rem 0;">
+                        <span class="project-tag">Security</span>
+<span class="project-tag">JWT</span>
+<span class="project-tag">OAuth2</span>
+<span class="project-tag">Microservices</span>
+                    </div>
+                    <div class="project-btn-group" style="margin-top: auto;">
+                        <a href="oauth2-jwt-authentication-microservices.html" class="btn-primary" style="text-decoration: none;">Read Article</a>
+                    </div>
+                </div>
+            </article>
+    
+
+            <!-- Article Card: Eliminating N+1 Queries in Eloquent ORM: Practical Profiling -->
+            <article class="project-card glass blog-card">
+                <div class="project-img">
+                    <a href="eliminating-n-plus-1-queries.html">
+                        <img src="img/mysql-optimize.jpg" alt="Eliminating N+1 Queries in Eloquent ORM: Practical Profiling" loading="lazy">
+                    </a>
+                </div>
+                <div class="project-content">
+                    <div class="blog-meta">
+                        <span><i class='bx bx-calendar'></i> August 17, 2026</span>
+                        <span><i class='bx bx-time'></i> 6 min read</span>
+                    </div>
+                    <h3><a href="eliminating-n-plus-1-queries.html" class="text-primary-hover" style="color: inherit; text-decoration: none;">Eliminating N+1 Queries in Eloquent ORM: Practical Profiling</a></h3>
+                    <p>Learn how to identify and resolve slow N+1 query loops in Laravel Eloquent ORM using database logs and eager loading queries.</p>
+                    <div class="project-tags" style="margin: 1rem 0;">
+                        <span class="project-tag">Laravel</span>
+<span class="project-tag">Database</span>
+<span class="project-tag">MySQL</span>
+<span class="project-tag">Tuning</span>
+                    </div>
+                    <div class="project-btn-group" style="margin-top: auto;">
+                        <a href="eliminating-n-plus-1-queries.html" class="btn-primary" style="text-decoration: none;">Read Article</a>
+                    </div>
+                </div>
+            </article>
+    
+
+            <!-- Article Card: Full-Text Search Scaling with Elasticsearch and Laravel Scout -->
+            <article class="project-card glass blog-card">
+                <div class="project-img">
+                    <a href="full-text-search-elasticsearch-scout.html">
+                        <img src="img/mysql-optimize.jpg" alt="Full-Text Search Scaling with Elasticsearch and Laravel Scout" loading="lazy">
+                    </a>
+                </div>
+                <div class="project-content">
+                    <div class="blog-meta">
+                        <span><i class='bx bx-calendar'></i> August 19, 2026</span>
+                        <span><i class='bx bx-time'></i> 8 min read</span>
+                    </div>
+                    <h3><a href="full-text-search-elasticsearch-scout.html" class="text-primary-hover" style="color: inherit; text-decoration: none;">Full-Text Search Scaling with Elasticsearch and Laravel Scout</a></h3>
+                    <p>A guide on implementing advanced search systems in Laravel using Laravel Scout and Elasticsearch for instant, fuzzy queries.</p>
+                    <div class="project-tags" style="margin: 1rem 0;">
+                        <span class="project-tag">Elasticsearch</span>
+<span class="project-tag">Laravel</span>
+<span class="project-tag">Search</span>
+<span class="project-tag">Database</span>
+                    </div>
+                    <div class="project-btn-group" style="margin-top: auto;">
+                        <a href="full-text-search-elasticsearch-scout.html" class="btn-primary" style="text-decoration: none;">Read Article</a>
+                    </div>
+                </div>
+            </article>
+    
+
+            <!-- Article Card: Event-Driven Architectures in PHP using RabbitMQ -->
+            <article class="project-card glass blog-card">
+                <div class="project-img">
+                    <a href="event-driven-architectures-rabbitmq.html">
+                        <img src="img/laravel-queues.jpg" alt="Event-Driven Architectures in PHP using RabbitMQ" loading="lazy">
+                    </a>
+                </div>
+                <div class="project-content">
+                    <div class="blog-meta">
+                        <span><i class='bx bx-calendar'></i> August 21, 2026</span>
+                        <span><i class='bx bx-time'></i> 9 min read</span>
+                    </div>
+                    <h3><a href="event-driven-architectures-rabbitmq.html" class="text-primary-hover" style="color: inherit; text-decoration: none;">Event-Driven Architectures in PHP using RabbitMQ</a></h3>
+                    <p>Learn how to decouple PHP systems by implementing event-driven queue flows using RabbitMQ message brokers.</p>
+                    <div class="project-tags" style="margin: 1rem 0;">
+                        <span class="project-tag">RabbitMQ</span>
+<span class="project-tag">Microservices</span>
+<span class="project-tag">PHP</span>
+<span class="project-tag">System Design</span>
+                    </div>
+                    <div class="project-btn-group" style="margin-top: auto;">
+                        <a href="event-driven-architectures-rabbitmq.html" class="btn-primary" style="text-decoration: none;">Read Article</a>
+                    </div>
+                </div>
+            </article>
+    
+
+            <!-- Article Card: Real-Time Performance Monitoring: New Relic and Sentry -->
+            <article class="project-card glass blog-card">
+                <div class="project-img">
+                    <a href="real-time-performance-monitoring.html">
+                        <img src="img/laravel-queues.jpg" alt="Real-Time Performance Monitoring: New Relic and Sentry" loading="lazy">
+                    </a>
+                </div>
+                <div class="project-content">
+                    <div class="blog-meta">
+                        <span><i class='bx bx-calendar'></i> August 23, 2026</span>
+                        <span><i class='bx bx-time'></i> 7 min read</span>
+                    </div>
+                    <h3><a href="real-time-performance-monitoring.html" class="text-primary-hover" style="color: inherit; text-decoration: none;">Real-Time Performance Monitoring: New Relic and Sentry</a></h3>
+                    <p>How to configure New Relic APM and Sentry error trackers in PHP to detect slow queries and production code crashes in real-time.</p>
+                    <div class="project-tags" style="margin: 1rem 0;">
+                        <span class="project-tag">APM</span>
+<span class="project-tag">DevOps</span>
+<span class="project-tag">Monitoring</span>
+<span class="project-tag">Sentry</span>
+                    </div>
+                    <div class="project-btn-group" style="margin-top: auto;">
+                        <a href="real-time-performance-monitoring.html" class="btn-primary" style="text-decoration: none;">Read Article</a>
+                    </div>
+                </div>
+            </article>
+    
+
+            <!-- Article Card: Automated CI/CD Pipelines for PHP using GitHub Actions -->
+            <article class="project-card glass blog-card">
+                <div class="project-img">
+                    <a href="automated-ci-cd-pipelines-php.html">
+                        <img src="img/laravel-queues.jpg" alt="Automated CI/CD Pipelines for PHP using GitHub Actions" loading="lazy">
+                    </a>
+                </div>
+                <div class="project-content">
+                    <div class="blog-meta">
+                        <span><i class='bx bx-calendar'></i> August 25, 2026</span>
+                        <span><i class='bx bx-time'></i> 8 min read</span>
+                    </div>
+                    <h3><a href="automated-ci-cd-pipelines-php.html" class="text-primary-hover" style="color: inherit; text-decoration: none;">Automated CI/CD Pipelines for PHP using GitHub Actions</a></h3>
+                    <p>A step-by-step tutorial on building automated deployment pipelines using GitHub Actions, PHPUnit testing, and staging server synchronization.</p>
+                    <div class="project-tags" style="margin: 1rem 0;">
+                        <span class="project-tag">DevOps</span>
+<span class="project-tag">CI/CD</span>
+<span class="project-tag">GitHub Actions</span>
+<span class="project-tag">Testing</span>
+                    </div>
+                    <div class="project-btn-group" style="margin-top: auto;">
+                        <a href="automated-ci-cd-pipelines-php.html" class="btn-primary" style="text-decoration: none;">Read Article</a>
+                    </div>
+                </div>
+            </article>
+    
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Asim Ali. All Rights Reserved. Built for speed, optimized for search engines.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        lucide.createIcons();
+
+        // Theme Switcher for Blog
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = themeToggleBtn.querySelector('i');
+        
+        // Load initial theme
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            if (theme === 'light') {
+                themeIcon.className = 'bx bx-moon';
+            } else {
+                themeIcon.className = 'bx bx-sun';
+            }
+        }
+
+        // Inline Reveal Script (Safeguard)
+        function initReveal() {
+            const revealElements = document.querySelectorAll(".reveal, .reveal-left, .reveal-right, .reveal-scale");
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("active");
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.05,
+                rootMargin: "0px 0px -40px 0px"
+            });
+            revealElements.forEach(el => revealObserver.observe(el));
+            
+            // Auto stagger lists/grids
+            const staggerGrids = document.querySelectorAll(".stagger-grid");
+            staggerGrids.forEach(grid => {
+                Array.from(grid.children).forEach((item, index) => {
+                    item.classList.add("reveal");
+                    item.style.transitionDelay = (index * 0.08) + "s";
+                    revealObserver.observe(item);
+                });
+            });
+        }
+        if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", initReveal);
+        } else {
+            initReveal();
+        }
+    </script>
+    <script src="../js/script.js?v=1.1"></script>
+</body>
+
+</html>

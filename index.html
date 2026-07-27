@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asim Ali | Senior Full Stack & Backend Architect</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Official portfolio of Asim Ali, a professional Backend Architect specializing in PHP, Laravel, system performance optimization, and AI integrations.">
+    <meta name="keywords" content="Asim Ali, Backend Developer, PHP Developer, Laravel Expert, AI Integration, System Design, Sahiwal, Pakistan">
+    <meta name="author" content="Asim Ali">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://asimgee105.github.io/Portfolio/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://asimgee105.github.io/Portfolio/">
+    <meta property="og:title" content="Asim Ali | Senior Full Stack & Backend Architect">
+    <meta property="og:description" content="Explore my projects, specialized skills in Laravel/PHP databases, and modern AI integration platforms.">
+    <meta property="og:image" content="https://asimgee105.github.io/Portfolio/img/asim-profile-new.webp">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://asimgee105.github.io/Portfolio/">
+    <meta name="twitter:title" content="Asim Ali | Senior Full Stack & Backend Architect">
+    <meta name="twitter:description" content="Explore my projects, specialized skills in Laravel/PHP databases, and modern AI integration platforms.">
+    <meta name="twitter:image" content="https://asimgee105.github.io/Portfolio/img/asim-profile-new.webp">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
+
+    <!-- Fonts & Icons -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- JSON-LD Structured Data Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Asim Ali",
+      "jobTitle": "Backend Architect & Web Developer",
+      "url": "https://asimgee105.github.io/Portfolio/",
+      "image": "https://asimgee105.github.io/Portfolio/img/asim-profile-new.webp",
+      "sameAs": [
+        "https://github.com/asimgee105",
+        "https://www.linkedin.com/in/asim-ali-3b879729b/"
+      ],
+      "knowsAbout": ["PHP", "Laravel", "CodeIgniter", "MySQL", "API Design", "SEO Optimization", "System Performance"]
+    }
+    </script>
+</head>
+
+<body>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader-spinner"></div>
+        <div class="loader-text">ASIM ALI</div>
+    </div>
+
+    <!-- Canvas Particle Background -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Header Navigation -->
+    <header id="header">
+        <a href="#" class="logo">ASIM <span class="text-gradient">ALI</span></a>
+
+        <nav>
+            <ul>
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#timeline">Journey</a></li>
+                <li><a href="#portfolio">Projects</a></li>
+                <li><a href="#github">GitHub</a></li>
+                <li><a href="blog/index.html">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-controls">
+            <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+                <i class="bx bx-sun"></i>
+            </button>
+            <div id="menu-icon" aria-label="Toggle Menu">
+                <i data-lucide="menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero container" id="home">
+        <div class="hero-content reveal-left">
+            <span class="hero-subtitle">System Architect</span>
+            <h1>Hi, I'm Asim Ali</h1>
+            <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 1.5rem; min-height: 48px;">
+                I am a <span class="text-gradient multiple-text"></span>
+            </h2>
+            <p>I build enterprise-grade backend engines, design secure database models, sync high-traffic API pipelines, and engineer smart AI integration dashboards for modern businesses.</p>
+            <div class="hero-btns">
+                <a href="CV/Asim Ali.pdf.pdf" class="btn-primary" download>
+                    <i data-lucide="download"></i> Download Resume
+                </a>
+                <a href="#contact" class="btn-secondary">Let's Talk</a>
+            </div>
+            <div class="social-hero">
+                <a href="https://github.com/asimgee105" target="_blank" aria-label="GitHub"><i class="bx bxl-github"></i></a>
+                <a href="https://www.linkedin.com/in/asim-ali-3b879729b/" target="_blank" aria-label="LinkedIn"><i class="bx bxl-linkedin"></i></a>
+                <a href="mailto:asimgee105@gmail.com" aria-label="Gmail"><i class="bx bxl-gmail"></i></a>
+                <a href="https://wa.me/923154936412" target="_blank" aria-label="WhatsApp"><i class="bx bxl-whatsapp"></i></a>
+            </div>
+        </div>
+
+        <div class="hero-img reveal-right">
+            <div class="hero-img-wrapper">
+                <img src="img/asim-profile-new.webp" alt="Asim Ali Portfolio Portrait">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section-padding container" id="about">
+        <div class="about-grid">
+            <div class="about-image reveal-left">
+                <img src="img/asim-workspace-new.webp" alt="About Asim Ali" class="glass" style="padding: 1rem;">
+            </div>
+            <div class="about-info reveal-right">
+                <h3>Crafting Robust <span class="text-gradient">Backend Systems</span></h3>
+                <p>Equipped with a Bachelor of Science in Computer Science (BS-CS) from Govt. Postgraduate College Sahiwal, I specialize in architecting high-performance server structures. My core focus lies in the PHP ecosystem (Laravel, CodeIgniter 3, Livewire), MySQL indexing, and secure API networks.</p>
+                <p>I have designed inventory synchronization scripts processing over 20,000 active entries daily, programmed localized IndexedDB caching layers allowing cashiers to run transaction queues offline, and integrated automation utilities reducing server CPU overhead by 35%.</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-item glass">
+                        <div class="stat-number" data-target="3" data-suffix="+">0</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-item glass">
+                        <div class="stat-number" data-target="16" data-suffix="+">0</div>
+                        <div class="stat-label">Enterprise Projects</div>
+                    </div>
+                    <div class="stat-item glass">
+                        <div class="stat-number" data-target="15" data-suffix="+">0</div>
+                        <div class="stat-label">Core Technologies</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section class="section-padding" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-title reveal-scale">
+                <h2>Core <span class="text-gradient">Expertise</span></h2>
+                <p>Scalable, performant, and secure solutions tailored for business growth</p>
+            </div>
+
+            <div class="services-grid stagger-grid">
+                <div class="service-card glass">
+                    <div class="service-icon"><i data-lucide="server"></i></div>
+                    <h3>Backend Architecture</h3>
+                    <p>Designing microservices and MVC patterns utilizing PHP, Laravel, and CodeIgniter with an emphasis on speed and modular code structures.</p>
+                </div>
+                <div class="service-card glass">
+                    <div class="service-icon"><i data-lucide="database"></i></div>
+                    <h3>Database Design</h3>
+                    <p>Creating optimized relational models, programming complex SQL triggers, and resolving database locks using index profiling in MySQL.</p>
+                </div>
+                <div class="service-card glass">
+                    <div class="service-icon"><i data-lucide="cpu"></i></div>
+                    <h3>AI & Integrations</h3>
+                    <p>Integrating third-party Large Language Model APIs, engineering system agents, semantic search tools, and secure transactional pipelines.</p>
+                </div>
+                <div class="service-card glass">
+                    <div class="service-icon"><i data-lucide="activity"></i></div>
+                    <h3>Performance Tuning</h3>
+                    <p>Optimizing page loading velocities, implementing server-side cache layers (Redis), and establishing automated task queue managers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section-padding container" id="skills">
+        <div class="section-title reveal-scale">
+            <h2>Technical <span class="text-gradient">Skill Matrix</span></h2>
+            <p>My stack of programming languages, databases, tools, and specialized utilities</p>
+        </div>
+
+        <div class="skills-wrapper">
+            <!-- Backend and Databases -->
+            <div class="skills-category-box glass reveal-left">
+                <h3><i class="bx bx-server"></i> Professional Frameworks & Databases</h3>
+                <div class="skills-grid stagger-grid">
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Laravel / Livewire</span> <span>90%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-percent="90%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>PHP Core & MVC</span> <span>95%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-percent="95%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>CodeIgniter 3</span> <span>100%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-percent="100%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>MySQL Database</span> <span>85%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-percent="85%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>API Design (RESTful)</span> <span>90%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-percent="90%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>AI APIs (OpenAI / Claude)</span> <span>85%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-percent="85%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>AI Agents & MCP Concepts</span> <span>80%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-percent="80%"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Frontend and DevOps -->
+            <div class="skills-category-box glass reveal-right">
+                <h3><i class="bx bx-code-block"></i> Core Frontend & Development Tools</h3>
+                <div class="skills-grid stagger-grid">
+                    <div class="skill-item">
+                        <div class="skill-info"><span>JavaScript / AJAX</span> <span>85%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-percent="85%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Tailwind CSS</span> <span>75%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-percent="75%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Bootstrap 5</span> <span>75%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-percent="75%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>DevOps & Git</span> <span>80%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-percent="80%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>SEO Microdata (JSON-LD)</span> <span>85%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-percent="85%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>IndexedDB Caching</span> <span>80%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" data-percent="80%"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="section-padding" id="timeline" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-title reveal-scale">
+                <h2>Professional <span class="text-gradient">Timeline</span></h2>
+                <p>A mapping of my educational background and engineering journey</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item left reveal-left">
+                    <div class="timeline-content glass">
+                        <div class="timeline-date">2024 - Present</div>
+                        <h3>Freelance Web Developer</h3>
+                        <div class="timeline-institution">Fiverr & Upwork</div>
+                        <ul>
+                            <li>Designed custom MVC projects for international clients in PHP.</li>
+                            <li>Engineered localized inventory sync modules and custom scraping APIs.</li>
+                            <li>Optimized legacy database tables, resolving bottleneck queries.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item right reveal-right">
+                    <div class="timeline-content glass">
+                        <div class="timeline-date">2023 - 2025</div>
+                        <h3>Backend Developer Intern</h3>
+                        <div class="timeline-institution">POS Management Project Team</div>
+                        <ul>
+                            <li>Coded barcode-scanner parsing logic inside POS receipt routines.</li>
+                            <li>Engineered IndexedDB system saving cashier transactions offline.</li>
+                            <li>Integrated transaction sync modules with central MySQL servers.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item left reveal-left">
+                    <div class="timeline-content glass">
+                        <div class="timeline-date">2022 - 2025</div>
+                        <h3>Backend Developer</h3>
+                        <div class="timeline-institution">HaddockSoft</div>
+                        <ul>
+                            <li>Managed complex Laravel systems supporting UAE properties listing pipelines.</li>
+                            <li>Wrote cron-scheduled XML parsing utilities processing 20k items.</li>
+                            <li>Integrated checkout modules (Stripe API) and SMS notification endpoints.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item right reveal-right">
+                    <div class="timeline-content glass">
+                        <div class="timeline-date">2020 - 2023</div>
+                        <h3>BS in Computer Science</h3>
+                        <div class="timeline-institution">Govt. Postgraduate College Sahiwal</div>
+                        <ul>
+                            <li>Studied database theory, algorithm structures, and networks.</li>
+                            <li>Built POS dashboard systems as graduation project achievements.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section-padding container" id="portfolio">
+        <div class="section-title reveal-scale">
+            <h2>Software <span class="text-gradient">Showcase</span></h2>
+            <p>A collection of enterprise-level systems I built, showing detailed technical files inside</p>
+        </div>
+
+        <div class="projects-grid stagger-grid">
+            <!-- Project 1 -->
+            <div class="project-card glass">
+                <div class="project-img">
+                    <img src="img/portfolio pics/apnasahiwal.webp" alt="ApnaSahiwal Directory Portal" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <div class="project-tags">
+                        <span class="project-tag">Laravel</span>
+                        <span class="project-tag">MySQL</span>
+                        <span class="project-tag">GIS</span>
+                        <span class="project-tag">API</span>
+                    </div>
+                    <h3>ApnaSahiwal City Portal</h3>
+                    <p>A comprehensive digital directory and community hub for Sahiwal, featuring geospatial map searches.</p>
+                    <div class="project-btn-group">
+                        <a href="#" class="btn-primary open-modal-btn" data-project="apnasahiwal">System Details</a>
+                        <a href="https://github.com/asimgee105/apnasahiwal" target="_blank" class="project-link" aria-label="ApnaSahiwal GitHub Repo"><i class="bx bxl-github"></i> Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card glass">
+                <div class="project-img">
+                    <img src="img/portfolio pics/oshaacademy.webp" alt="OSHA Academy LMS" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <div class="project-tags">
+                        <span class="project-tag">Laravel</span>
+                        <span class="project-tag">Livewire</span>
+                        <span class="project-tag">Stripe</span>
+                        <span class="project-tag">Queues</span>
+                    </div>
+                    <h3>OSHA Academy LMS</h3>
+                    <p>Compliance certification system featuring online exams, Stripe billing, and background PDF creation.</p>
+                    <div class="project-btn-group">
+                        <a href="#" class="btn-primary open-modal-btn" data-project="oshaacademy">System Details</a>
+                        <a href="https://github.com/asimgee105/OSHAAcademy" target="_blank" class="project-link" aria-label="OSHAAcademy GitHub Repo"><i class="bx bxl-github"></i> Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card glass">
+                <div class="project-img">
+                    <img src="img/portfolio pics/alltoolpro-image.webp" alt="AllToolPro SEO Platform" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <div class="project-tags">
+                        <span class="project-tag">Core PHP</span>
+                        <span class="project-tag">AJAX</span>
+                        <span class="project-tag">SEO</span>
+                        <span class="project-tag">NLP Tools</span>
+                    </div>
+                    <h3>AllToolPro Suite</h3>
+                    <p>A collection of 100+ free SEO analysis tools, with integrated scraping and server rate limits.</p>
+                    <div class="project-btn-group">
+                        <a href="#" class="btn-primary open-modal-btn" data-project="alltoolpro">System Details</a>
+                        <a href="https://github.com/asimgee105/alltoolpro" target="_blank" class="project-link" aria-label="AllToolPro GitHub Repo"><i class="bx bxl-github"></i> Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="project-card glass">
+                <div class="project-img">
+                    <img src="img/portfolio pics/Luxliving.webp" alt="LuxLiving Real Estate UAE" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <div class="project-tags">
+                        <span class="project-tag">CodeIgniter 3</span>
+                        <span class="project-tag">XML Sync</span>
+                        <span class="project-tag">Google Maps</span>
+                    </div>
+                    <h3>LuxLiving UAE Portal</h3>
+                    <p>Luxury real estate listings portal featuring advanced location querying and CRM sync.</p>
+                    <div class="project-btn-group">
+                        <a href="#" class="btn-primary open-modal-btn" data-project="luxliving">System Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="project-card glass">
+                <div class="project-img">
+                    <img src="img/portfolio pics/onearth.webp" alt="One Earth Properties UAE" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <div class="project-tags">
+                        <span class="project-tag">Laravel</span>
+                        <span class="project-tag">JSON Index</span>
+                        <span class="project-tag">Denormalization</span>
+                    </div>
+                    <h3>One Earth Properties</h3>
+                    <p>UAE property portal optimizing heavy DB query joins down to 80ms using denormalized fields.</p>
+                    <div class="project-btn-group">
+                        <a href="#" class="btn-primary open-modal-btn" data-project="oneearth">System Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 6 -->
+            <div class="project-card glass">
+                <div class="project-img">
+                    <img src="img/portfolio pics/skillfulsahiwal-image.webp" alt="Skillful Sahiwal LMS" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <div class="project-tags">
+                        <span class="project-tag">Laravel</span>
+                        <span class="project-tag">Livewire</span>
+                        <span class="project-tag">FFmpeg HLS</span>
+                    </div>
+                    <h3>Skillful Sahiwal LMS</h3>
+                    <p>E-learning application supporting low-bandwidth video lecture streaming via FFmpeg transcoding.</p>
+                    <div class="project-btn-group">
+                        <a href="#" class="btn-primary open-modal-btn" data-project="skillfulsahiwal">System Details</a>
+                        <a href="https://github.com/asimgee105/skillfulsahiwal" target="_blank" class="project-link" aria-label="Skillful Sahiwal GitHub Repo"><i class="bx bxl-github"></i> Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 7 -->
+            <div class="project-card glass">
+                <div class="project-img">
+                    <img src="img/portfolio pics/ibazar.webp" alt="iBazar Multi-Vendor Store" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <div class="project-tags">
+                        <span class="project-tag">Laravel</span>
+                        <span class="project-tag">Livewire</span>
+                        <span class="project-tag">Transactions</span>
+                    </div>
+                    <h3>iBazar E-commerce</h3>
+                    <p>Multi-vendor store protecting payout safety using strict database transactions.</p>
+                    <div class="project-btn-group">
+                        <a href="#" class="btn-primary open-modal-btn" data-project="ibazar">System Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 8 -->
+            <div class="project-card glass">
+                <div class="project-img">
+                    <img src="img/portfolio pics/point-of-sale.webp" alt="Modular POS System" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <div class="project-tags">
+                        <span class="project-tag">Core PHP</span>
+                        <span class="project-tag">IndexedDB</span>
+                        <span class="project-tag">Offline Sync</span>
+                    </div>
+                    <h3>POS Billing System</h3>
+                    <p>Point of Sale billing system allowing local checkout logs to sync when connection resumes.</p>
+                    <div class="project-btn-group">
+                        <a href="#" class="btn-primary open-modal-btn" data-project="pos">System Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 9: AI Binance Trading Platform -->
+            <div class="project-card glass">
+                <div class="project-img">
+                    <img src="img/portfolio pics/ai-binance.jpg" alt="AI Binance Trading Platform" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <div class="project-tags">
+                        <span class="project-tag">TypeScript</span>
+                        <span class="project-tag">Node.js</span>
+                        <span class="project-tag">TensorFlow.js</span>
+                        <span class="project-tag">Binance API</span>
+                    </div>
+                    <h3>AI Binance Trading Platform</h3>
+                    <p>Cryptocurrency trading agent executing automated trades based on indicators and market sentiment.</p>
+                    <div class="project-btn-group">
+                        <a href="#" class="btn-primary open-modal-btn" data-project="ai_binance">System Details</a>
+                        <a href="https://github.com/asimgee105/ai-binance-trading-platform" target="_blank" class="project-link" aria-label="AI Binance GitHub Repo"><i class="bx bxl-github"></i> Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 10: MedGuide Directory Portal -->
+            <div class="project-card glass">
+                <div class="project-img">
+                    <img src="img/portfolio pics/medguide.jpg" alt="MedGuide Directory Portal" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <div class="project-tags">
+                        <span class="project-tag">Laravel</span>
+                        <span class="project-tag">MySQL</span>
+                        <span class="project-tag">Leaflet JS</span>
+                        <span class="project-tag">AES-256</span>
+                    </div>
+                    <h3>MedGuide Directory Portal</h3>
+                    <p>Medical directory and patient booking engine utilizing geographical maps and secure records storage.</p>
+                    <div class="project-btn-group">
+                        <a href="#" class="btn-primary open-modal-btn" data-project="medguide">System Details</a>
+                        <a href="https://github.com/asimgee105/MedGuide" target="_blank" class="project-link" aria-label="MedGuide GitHub Repo"><i class="bx bxl-github"></i> Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 11: Mobile Specifications Hub -->
+            <div class="project-card glass">
+                <div class="project-img">
+                    <img src="img/portfolio pics/mobile-reviews.jpg" alt="Mobile Specifications Hub" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <div class="project-tags">
+                        <span class="project-tag">JavaScript</span>
+                        <span class="project-tag">CSS3</span>
+                        <span class="project-tag">Google Sheets API</span>
+                    </div>
+                    <h3>Mobile Specifications Hub</h3>
+                    <p>Smartphone comparison database showing side-by-side spec sheets with fast filtering.</p>
+                    <div class="project-btn-group">
+                        <a href="#" class="btn-primary open-modal-btn" data-project="mobile_reviews">System Details</a>
+                        <a href="https://github.com/asimgee105/mobile-reviews" target="_blank" class="project-link" aria-label="Mobile Reviews GitHub Repo"><i class="bx bxl-github"></i> Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 12: RemoteDev AI Reviewer -->
+            <div class="project-card glass">
+                <div class="project-img">
+                    <img src="img/portfolio pics/remotedev-ai.jpg" alt="RemoteDev AI Reviewer" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <div class="project-tags">
+                        <span class="project-tag">TypeScript</span>
+                        <span class="project-tag">OpenAI API</span>
+                        <span class="project-tag">GitHub SDK</span>
+                    </div>
+                    <h3>RemoteDev AI Reviewer</h3>
+                    <p>AI-driven code assistant automating pull request reviews and drafting unit tests.</p>
+                    <div class="project-btn-group">
+                        <a href="#" class="btn-primary open-modal-btn" data-project="remotedev_ai">System Details</a>
+                        <a href="https://github.com/asimgee105/remotedev-ai" target="_blank" class="project-link" aria-label="RemoteDev AI GitHub Repo"><i class="bx bxl-github"></i> Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 13: Super Dollar Mobile App -->
+            <div class="project-card glass">
+                <div class="project-img">
+                    <img src="img/portfolio pics/super-dollar-app.jpg" alt="Super Dollar Mobile App" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <div class="project-tags">
+                        <span class="project-tag">Flutter</span>
+                        <span class="project-tag">Dart</span>
+                        <span class="project-tag">Firebase</span>
+                        <span class="project-tag">Hive DB</span>
+                    </div>
+                    <h3>Super Dollar Mobile App</h3>
+                    <p>Mobile fintech app showing live exchange rates, biometrics lock, and offline transactions caching.</p>
+                    <div class="project-btn-group">
+                        <a href="#" class="btn-primary open-modal-btn" data-project="super_dollar_app">System Details</a>
+                        <a href="https://github.com/asimgee105/super-dollar-app" target="_blank" class="project-link" aria-label="Super Dollar App GitHub Repo"><i class="bx bxl-github"></i> Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 14: Super Dollar Sahiwal Web -->
+            <div class="project-card glass">
+                <div class="project-img">
+                    <img src="img/portfolio pics/superdollarsahiwal.jpg" alt="Super Dollar Sahiwal Web" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <div class="project-tags">
+                        <span class="project-tag">Laravel</span>
+                        <span class="project-tag">MySQL</span>
+                        <span class="project-tag">Cron Scraping</span>
+                    </div>
+                    <h3>Super Dollar Sahiwal Web</h3>
+                    <p>Financial web portal providing daily local currency conversion rate history and XML tracking.</p>
+                    <div class="project-btn-group">
+                        <a href="#" class="btn-primary open-modal-btn" data-project="superdollar_sahiwal">System Details</a>
+                        <a href="https://github.com/asimgee105/superdollarsahiwal" target="_blank" class="project-link" aria-label="Super Dollar Sahiwal GitHub Repo"><i class="bx bxl-github"></i> Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 15: Ecomrace Web App -->
+            <div class="project-card glass">
+                <div class="project-img">
+                    <img src="img/portfolio pics/ecomrace.jpg" alt="Ecomrace Web App" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <div class="project-tags">
+                        <span class="project-tag">Vue.js</span>
+                        <span class="project-tag">Pinia State</span>
+                        <span class="project-tag">Tailwind CSS</span>
+                    </div>
+                    <h3>Ecomrace Storefront</h3>
+                    <p>Dynamic e-commerce SPA frontend with persistent Pinia cart state and virtual scrolling grids.</p>
+                    <div class="project-btn-group">
+                        <a href="#" class="btn-primary open-modal-btn" data-project="ecomrace">System Details</a>
+                        <a href="https://github.com/asimgee105/web-app-ecomrace" target="_blank" class="project-link" aria-label="Ecomrace GitHub Repo"><i class="bx bxl-github"></i> Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 16: World Best Mobiles Blog -->
+            <div class="project-card glass">
+                <div class="project-img">
+                    <img src="img/portfolio pics/world-best-mobiles.jpg" alt="World Best Mobiles Blog" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <div class="project-tags">
+                        <span class="project-tag">HTML5</span>
+                        <span class="project-tag">CSS3</span>
+                        <span class="project-tag">Disqus API</span>
+                    </div>
+                    <h3>World Best Mobiles Blog</h3>
+                    <p>Modern tech review blog platform optimized for mobile Lighthouse speeds and schema SEO.</p>
+                    <div class="project-btn-group">
+                        <a href="#" class="btn-primary open-modal-btn" data-project="world_best_mobiles">System Details</a>
+                        <a href="https://github.com/asimgee105/world-best-mobiles" target="_blank" class="project-link" aria-label="World Best Mobiles GitHub Repo"><i class="bx bxl-github"></i> Code</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub Section -->
+    <section class="section-padding" id="github" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-title reveal-scale">
+                <h2>GitHub <span class="text-gradient">Activity</span></h2>
+                <p>Live stats pulled dynamically from my open-source repositories using GitHub API</p>
+            </div>
+
+            <div class="github-grid">
+                <div class="github-profile-card glass reveal-left">
+                    <img id="github-avatar" src="" alt="GitHub User Avatar" class="github-avatar">
+                    <h3 id="github-name">...</h3>
+                    <p id="github-username">@...</p>
+                    <p id="github-bio" style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.5rem;">...</p>
+                    
+                    <div class="github-stats-row">
+                        <div class="github-stat">
+                            <span id="github-repos-count">0</span>
+                            <span>Repos</span>
+                        </div>
+                        <div class="github-stat">
+                            <span id="github-stars-count">0</span>
+                            <span>Stars</span>
+                        </div>
+                        <div class="github-stat">
+                            <span id="github-followers">0</span>
+                            <span>Followers</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="github-repos" class="github-repos-list reveal-right">
+                    <!-- Repos are dynamically generated here -->
+                    <div class="github-repo-card glass" style="height: 180px; justify-content: center; align-items: center;">
+                        <span class="loader-spinner" style="width: 30px; height: 30px; border-width: 3px;"></span>
+                    </div>
+                    <div class="github-repo-card glass" style="height: 180px; justify-content: center; align-items: center;">
+                        <span class="loader-spinner" style="width: 30px; height: 30px; border-width: 3px;"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Showcase Section -->
+    <section class="section-padding container" id="ai">
+        <div class="section-title reveal-scale">
+            <h2>AI Engineering <span class="text-gradient">Showcase</span></h2>
+            <p>Interact with my system console simulator to inspect my AI credentials and integrations</p>
+        </div>
+
+        <div class="ai-terminal glass reveal-scale">
+            <div class="terminal-header">
+                <div class="terminal-buttons">
+                    <div class="terminal-btn close"></div>
+                    <div class="terminal-btn minimize"></div>
+                    <div class="terminal-btn maximize"></div>
+                </div>
+                <div class="terminal-title">system-console - visitor@asim-dev:~ - bash</div>
+            </div>
+            <div class="terminal-body" id="terminal-body">
+                <!-- CLI input & outputs -->
+            </div>
+            <div class="terminal-input-line" style="padding: 0 1.5rem 1.5rem;">
+                <span class="terminal-prompt" style="font-family: 'Courier New', Courier, monospace; font-size: 0.9rem;">visitor@asim-dev:~$</span>
+                <input type="text" id="terminal-input" class="terminal-input" placeholder="Type help..." autofocus autocomplete="off">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section-padding" id="contact" style="background: var(--bg-secondary);">
+        <div class="container contact-container">
+            <div class="contact-info reveal-left">
+                <h3>Let's build <span class="text-gradient">Something Elite</span></h3>
+                <p>Have an enterprise project or database system that needs scaling? Contact me through any of the channels below or fill in the secure form.</p>
+
+                <div class="contact-item">
+                    <div class="contact-icon"><i data-lucide="mail"></i></div>
+                    <div>
+                        <h5>Direct Email</h5>
+                        <p><a href="mailto:asimgee105@gmail.com">asimgee105@gmail.com</a></p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon"><i data-lucide="phone"></i></div>
+                    <div>
+                        <h5>Phone / WhatsApp</h5>
+                        <p><a href="https://wa.me/923154936412" target="_blank">+92 315 4936412</a></p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon"><i data-lucide="map-pin"></i></div>
+                    <div>
+                        <h5>Work Location</h5>
+                        <p>Sahiwal, Pakistan (GMT+5)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form submits securely to Web3Forms -->
+            <form class="contact-form glass reveal-right" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                <!-- Web3Forms Access Key -->
+                <input type="hidden" name="access_key" value="9d34fb05-728b-4a57-b088-b4b613ce4607">
+                <!-- Redirect Page after submit -->
+                <input type="hidden" name="redirect" value="https://asimgee105.github.io/Portfolio/#contact">
+                <!-- Subject line for email notifications -->
+                <input type="hidden" name="subject" value="New Portfolio Contact Submission">
+
+                <div class="form-group">
+                    <input type="text" placeholder="Full Name" name="name" required>
+                    <span class="form-error" id="name-error">Please fill in your name.</span>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Email Address" name="email" required>
+                    <span class="form-error" id="email-error">Please fill in a valid email.</span>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Your Message" rows="5" name="message" required></textarea>
+                    <span class="form-error" id="message-error">Please type a message.</span>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Asim Ali. All Rights Reserved. Built for speed, optimized for search engines.</p>
+    </footer>
+
+    <!-- Project Details Modal -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content glass">
+            <button class="modal-close-btn" aria-label="Close modal"><i class="bx bx-x"></i></button>
+            <div id="modal-project-body" class="modal-body">
+                <!-- Content injected dynamically via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+    </script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
