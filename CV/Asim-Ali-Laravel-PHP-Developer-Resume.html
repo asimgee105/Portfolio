@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asim Ali - Laravel & PHP Backend Developer Resume</title>
+    <style>
+        :root {
+            --primary: #1e293b;
+            --secondary: #475569;
+            --accent: #2563eb;
+            --bg: #ffffff;
+            --text: #0f172a;
+            --border: #e2e8f0;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text);
+            line-height: 1.5;
+            background: var(--bg);
+            padding: 40px;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        header {
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 5px;
+        }
+
+        .title {
+            font-size: 1.25rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 8px 15px;
+            font-size: 0.9rem;
+            color: var(--secondary);
+        }
+
+        .contact-grid a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        .contact-grid a:hover {
+            color: var(--accent);
+        }
+
+        section {
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 6px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .summary {
+            font-size: 0.95rem;
+            color: var(--secondary);
+            text-align: justify;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 0.95rem;
+        }
+
+        .skills-row {
+            display: flex;
+        }
+
+        .skills-label {
+            font-weight: 700;
+            width: 180px;
+            flex-shrink: 0;
+            color: var(--primary);
+        }
+
+        .skills-val {
+            color: var(--secondary);
+        }
+
+        .job {
+            margin-bottom: 18px;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 4px;
+        }
+
+        .job-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .job-company {
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .job-date {
+            font-size: 0.9rem;
+            color: var(--secondary);
+            font-weight: 500;
+        }
+
+        ul {
+            margin-left: 20px;
+            font-size: 0.92rem;
+            color: var(--secondary);
+        }
+
+        li {
+            margin-bottom: 4px;
+        }
+
+        .project-item {
+            margin-bottom: 15px;
+        }
+
+        .project-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .project-tech {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 4px;
+        }
+
+        .project-desc {
+            font-size: 0.92rem;
+            color: var(--secondary);
+            margin-bottom: 2px;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+                font-size: 11pt;
+            }
+            a {
+                text-decoration: none;
+                color: var(--text);
+            }
+            .no-print {
+                display: none;
+            }
+            section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Asim Ali</h1>
+        <div class="title">Laravel & PHP Backend Developer</div>
+        <div class="contact-grid">
+            <div>Email: <a href="mailto:asimgee105@gmail.com">asimgee105@gmail.com</a></div>
+            <div>Phone: +92 315 4936412</div>
+            <div>Location: Sahiwal, Pakistan</div>
+            <div>Portfolio: <a href="https://asimgee105.github.io/Portfolio/" target="_blank">asimgee105.github.io/Portfolio</a></div>
+            <div>GitHub: <a href="https://github.com/asimgee105" target="_blank">github.com/asimgee105</a></div>
+            <div>LinkedIn: <a href="https://www.linkedin.com/in/asim-ali-964b01426" target="_blank">linkedin.com/in/asim-ali-964b01426</a></div>
+            <div>Upwork: <a href="https://www.upwork.com/freelancers/~01073d80632516b514" target="_blank">upwork.com/~01073d80632516b514</a></div>
+            <div>Fiverr: <a href="https://www.fiverr.com/s/DBD9qAy" target="_blank">fiverr.com/s/DBD9qAy</a></div>
+            <div>Contra: <a href="https://contra.com/mirza_gee_jdk4bwj0" target="_blank">contra.com/mirza_gee_jdk4bwj0</a></div>
+        </div>
+    </header>
+
+    <section>
+        <h2>Professional Summary</h2>
+        <p class="summary">
+            Detail-oriented Laravel & PHP Backend Developer with 3+ years of experience building, maintaining, and deploying robust web applications. Specialize in designing clean RESTful APIs, optimizing complex MySQL databases, and writing maintainable code in Laravel and CodeIgniter. Proven track record in solving database query bottlenecks, integrating third-party APIs (Stripe, Twilio, OpenAI), and implementing offline-first syncing capabilities (IndexedDB). Active remote collaborator dedicated to clean MVC structures and fast load times.
+        </p>
+    </section>
+
+    <section>
+        <h2>Technical Skill Matrix</h2>
+        <div class="skills-container">
+            <div class="skills-row">
+                <div class="skills-label">Backend Development:</div>
+                <div class="skills-val">PHP Core, Laravel, CodeIgniter 3, Livewire, RESTful APIs, MVC Patterns</div>
+            </div>
+            <div class="skills-row">
+                <div class="skills-label">Database & Storage:</div>
+                <div class="skills-val">MySQL, Database Design, Composite Indexing, Query Optimization, SQLite, IndexedDB Caching</div>
+            </div>
+            <div class="skills-row">
+                <div class="skills-label">Frontend Core:</div>
+                <div class="skills-val">HTML5, CSS3, JavaScript (ES6), Tailwind CSS, Bootstrap 5, AJAX, jQuery</div>
+            </div>
+            <div class="skills-row">
+                <div class="skills-label">Tools & DevOps:</div>
+                <div class="skills-val">Git, GitHub, Composer, npm, cPanel, phpMyAdmin, Postman, WAMP, Vite</div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Professional Experience</h2>
+        
+        <div class="job">
+            <div class="job-header">
+                <div>
+                    <span class="job-title">Freelance Web Developer</span> | 
+                    <span class="job-company">Fiverr & Upwork</span>
+                </div>
+                <div class="job-date">Jan 2024 – Present</div>
+            </div>
+            <ul>
+                <li>Fix Laravel and PHP bugs, resolve styling issues, and troubleshoot server deployment errors for international clients.</li>
+                <li>Design custom MVC web tools and database management modules utilizing Laravel and MySQL.</li>
+                <li>Integrate secure third-party payment gateways (Stripe Checkout) and automated email or SMS APIs.</li>
+                <li>Optimize database structures and write efficient AJAX scripts to reduce page load latency.</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <div>
+                    <span class="job-title">Backend Developer</span> | 
+                    <span class="job-company">HaddockSoft</span>
+                </div>
+                <div class="job-date">May 2022 – Dec 2025</div>
+            </div>
+            <ul>
+                <li>Maintained and scaled complex real-estate listings platforms in Laravel and CodeIgniter 3 for the UAE market.</li>
+                <li>Engineered automated, cron-scheduled XML parsing scripts that synchronized 20,000+ active property listings daily from multiple external data feeds.</li>
+                <li>Optimized slow multi-table database queries, reducing response times by 65% (from 2.4s to 430ms) through composite indexing and schema denormalization.</li>
+                <li>Implemented transactional database locks (`DB::transaction`) to safeguard payout processing systems against race conditions.</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <div>
+                    <span class="job-title">Backend Developer Intern</span> | 
+                    <span class="job-company">POS Management Project Team</span>
+                </div>
+                <div class="job-date">Oct 2023 – Mar 2024 (6 Months)</div>
+            </div>
+            <ul>
+                <li>Developed a local-first cashier transactional database inside the browser using IndexedDB.</li>
+                <li>Programmed barcode scanner parsing modules and thermal receipt print layout CSS styles.</li>
+                <li>Coded background sync workers to automatically upload queued transaction logs to central MySQL databases once internet connectivity resumed.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Selected Projects</h2>
+        
+        <div class="project-item">
+            <div class="project-title">ApnaSahiwal City Portal</div>
+            <div class="project-tech">Laravel, MySQL, GIS, Google Maps API</div>
+            <p class="project-desc">A digital directory and community hub for Sahiwal, featuring geospatial searches.</p>
+            <ul>
+                <li>Coded geospatial SQL queries using MySQL GIS functions (`ST_Distance_Sphere`) to calculate distance offsets, loading results in under 500ms.</li>
+            </ul>
+        </div>
+
+        <div class="project-item">
+            <div class="project-title">OSHA Academy LMS</div>
+            <div class="project-tech">Laravel, Livewire, MySQL, Stripe API, Redis queues</div>
+            <p class="project-desc">Online certification system featuring exams, Stripe billing, and background PDF creation.</p>
+            <ul>
+                <li>Offloaded high-CPU HTML-to-PDF certificate generation tasks to background Redis queues, maintaining responsive UI operations during peak exam periods.</li>
+            </ul>
+        </div>
+
+        <div class="project-item">
+            <div class="project-title">LuxLiving UAE Real Estate</div>
+            <div class="project-tech">CodeIgniter 3, MySQL, XML Sync Feeds, Google Maps API</div>
+            <p class="project-desc">Luxury real estate portal matching UAE listings feed imports.</p>
+            <ul>
+                <li>Wrote a chunk-based XML stream parser that handles 20k+ items without server timeouts, dropping heap memory overhead by 50%.</li>
+            </ul>
+        </div>
+
+        <div class="project-item">
+            <div class="project-title">AllToolPro SEO Platform</div>
+            <div class="project-tech">Core PHP, JavaScript, AJAX, Bootstrap 5, MySQL</div>
+            <p class="project-desc">A collection of 100+ free online meta, speed, and parsing tools.</p>
+            <ul>
+                <li>Programmed custom client rate-limiting scripts tracking user IPs to protect resources from web scraper abuse.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section style="margin-bottom: 0;">
+        <h2>Education</h2>
+        <div class="job">
+            <div class="job-header">
+                <div>
+                    <span class="job-title">Bachelor of Science in Computer Science (BS-CS)</span> | 
+                    <span class="job-company">Govt. Postgraduate College Sahiwal</span>
+                </div>
+                <div class="job-date">2020 – 2023</div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

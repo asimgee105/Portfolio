@@ -293,56 +293,62 @@ if (skillsSection) {
     skillsObserver.observe(skillsSection);
 }
 
-// GitHub API Integration
+// GitHub API Integration with Caching & Fallbacks
 async function fetchGitHubStats() {
     const username = 'asimgee105';
-    // Exit early if we are not on the main page containing GitHub profile details
     const avatarEl = document.getElementById('github-avatar');
     if (!avatarEl) return;
 
-    try {
-        // Fetch User Info
-        const userRes = await fetch(`https://api.github.com/users/${username}`);
-        if (!userRes.ok) throw new Error('GitHub user not found');
-        const userData = await userRes.json();
+    const cacheKey = `github_stats_${username}`;
+    const cacheTimeKey = `${cacheKey}_time`;
+    const cacheDuration = 12 * 60 * 60 * 1000; // 12 hours
 
-        // Update profile card details
-        avatarEl.src = userData.avatar_url;
-        document.getElementById('github-name').textContent = userData.name || 'Asim Ali';
-        document.getElementById('github-bio').textContent = userData.bio || 'Backend Architect & PHP/Laravel Specialist';
-        document.getElementById('github-repos-count').textContent = userData.public_repos;
-        document.getElementById('github-followers').textContent = userData.followers;
+    // Local static fallback data for immediate load or API rate limits
+    const fallbackRepos = [
+        {
+            name: 'apnasahiwal',
+            description: 'City portal directory with local mapping GIS queries, built in Laravel and MySQL.',
+            html_url: 'https://github.com/asimgee105/apnasahiwal',
+            language: 'PHP',
+            stargazers_count: 5,
+            forks_count: 2
+        },
+        {
+            name: 'OSHAAcademy',
+            description: 'Laravel compliance LMS featuring course builder, timed quizzes, and Stripe checkout payments.',
+            html_url: 'https://github.com/asimgee105/OSHAAcademy',
+            language: 'PHP',
+            stargazers_count: 4,
+            forks_count: 1
+        },
+        {
+            name: 'alltoolpro',
+            description: 'Core PHP collection of 100+ SEO utilities, NLP tools, analyzers, with server rate limits.',
+            html_url: 'https://github.com/asimgee105/alltoolpro',
+            language: 'PHP',
+            stargazers_count: 3,
+            forks_count: 1
+        },
+        {
+            name: 'skillfulsahiwal',
+            description: 'E-learning system transcoding video uploads using FFmpeg to support adaptive HLS streaming.',
+            html_url: 'https://github.com/asimgee105/skillfulsahiwal',
+            language: 'PHP',
+            stargazers_count: 3,
+            forks_count: 1
+        }
+    ];
 
-        // Fetch Repositories
-        const reposRes = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`);
-        if (!reposRes.ok) throw new Error('GitHub repos not found');
-        const repos = await reposRes.json();
-
-        // Calculate total stars and forks
-        let totalStars = 0;
-        let totalForks = 0;
-        repos.forEach(repo => {
-            totalStars += repo.stargazers_count;
-            totalForks += repo.forks_count;
-        });
-
-        document.getElementById('github-stars-count').textContent = totalStars;
-
-        // Sort repos by stars + forks, filter fork repos if wanted
-        const filteredRepos = repos
-            .filter(repo => !repo.fork)
-            .sort((a, b) => (b.stargazers_count + b.forks_count) - (a.stargazers_count + a.forks_count))
-            .slice(0, 4);
-
+    function renderRepos(repos) {
         const reposContainer = document.getElementById('github-repos');
-        reposContainer.innerHTML = ''; // Clear skeleton
-
-        filteredRepos.forEach(repo => {
+        if (!reposContainer) return;
+        reposContainer.innerHTML = '';
+        repos.forEach(repo => {
             const card = document.createElement('div');
             card.className = 'github-repo-card glass';
             card.innerHTML = `
                 <div>
-                    <a href="${repo.html_url}" target="_blank" class="github-repo-name">${repo.name}</a>
+                    <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="github-repo-name">${repo.name}</a>
                     <p class="github-repo-desc">${repo.description || 'No description provided.'}</p>
                 </div>
                 <div class="github-repo-meta">
@@ -353,10 +359,98 @@ async function fetchGitHubStats() {
             `;
             reposContainer.appendChild(card);
         });
+    }
+
+    function useFallback() {
+        avatarEl.src = 'img/asim-profile-new.webp';
+        document.getElementById('github-name').textContent = 'Asim Ali';
+        document.getElementById('github-bio').textContent = 'Laravel & PHP Backend Developer | REST APIs & MySQL';
+        document.getElementById('github-repos-count').textContent = '12';
+        document.getElementById('github-followers').textContent = '5';
+        document.getElementById('github-stars-count').textContent = '15';
+        renderRepos(fallbackRepos);
+    }
+
+    // Try to load cached data
+    const cachedStats = localStorage.getItem(cacheKey);
+    const cachedTime = localStorage.getItem(cacheTimeKey);
+    const now = Date.now();
+
+    if (cachedStats && cachedTime && (now - cachedTime < cacheDuration)) {
+        try {
+            const data = JSON.parse(cachedStats);
+            avatarEl.src = data.user.avatar_url;
+            document.getElementById('github-name').textContent = data.user.name || 'Asim Ali';
+            document.getElementById('github-bio').textContent = data.user.bio || 'Laravel & PHP Backend Developer';
+            document.getElementById('github-repos-count').textContent = data.user.public_repos;
+            document.getElementById('github-followers').textContent = data.user.followers;
+            document.getElementById('github-stars-count').textContent = data.stars;
+            renderRepos(data.repos);
+            return;
+        } catch (e) {
+            localStorage.removeItem(cacheKey);
+            localStorage.removeItem(cacheTimeKey);
+        }
+    }
+
+    try {
+        // Fetch User Info
+        const userRes = await fetch(`https://api.github.com/users/${username}`);
+        if (!userRes.ok) throw new Error('GitHub user not found');
+        const userData = await userRes.json();
+
+        // Fetch Repositories
+        const reposRes = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`);
+        if (!reposRes.ok) throw new Error('GitHub repos not found');
+        const repos = await reposRes.json();
+
+        // Calculate total stars and forks
+        let totalStars = 0;
+        repos.forEach(repo => {
+            totalStars += repo.stargazers_count;
+        });
+
+        // Filter out forks and sort by stars
+        const filteredRepos = repos
+            .filter(repo => !repo.fork)
+            .sort((a, b) => (b.stargazers_count + b.forks_count) - (a.stargazers_count + a.forks_count))
+            .slice(0, 4)
+            .map(r => ({
+                name: r.name,
+                description: r.description,
+                html_url: r.html_url,
+                language: r.language,
+                stargazers_count: r.stargazers_count,
+                forks_count: r.forks_count
+            }));
+
+        // Update DOM
+        avatarEl.src = userData.avatar_url;
+        document.getElementById('github-name').textContent = userData.name || 'Asim Ali';
+        document.getElementById('github-bio').textContent = userData.bio || 'Laravel & PHP Backend Developer';
+        document.getElementById('github-repos-count').textContent = userData.public_repos;
+        document.getElementById('github-followers').textContent = userData.followers;
+        document.getElementById('github-stars-count').textContent = totalStars;
+        renderRepos(filteredRepos);
+
+        // Cache results
+        const cacheData = {
+            user: {
+                avatar_url: userData.avatar_url,
+                name: userData.name,
+                bio: userData.bio,
+                public_repos: userData.public_repos,
+                followers: userData.followers
+            },
+            repos: filteredRepos,
+            stars: totalStars
+        };
+        localStorage.setItem(cacheKey, JSON.stringify(cacheData));
+        localStorage.setItem(cacheTimeKey, now.toString());
 
     } catch (error) {
-        console.error('Error fetching GitHub stats:', error);
-        // Fail gracefully, keep placeholder structure
+        console.warn('Failed to fetch from GitHub API, using fallback data:', error);
+        useFallback();
     }
 }
 
@@ -379,12 +473,12 @@ const terminalBody = document.getElementById('terminal-body');
 const terminalInput = document.getElementById('terminal-input');
 
 const terminalCommands = {
-    help: 'Available Commands:\n - <span class="success">about</span>      : Learn about my background\n - <span class="success">skills</span>     : View specialized technical skills\n - <span class="success">projects</span>   : List core software projects\n - <span class="success">ai</span>         : Show AI Integration highlights\n - <span class="success">contact</span>    : Get connection details\n - <span class="success">clear</span>      : Clear the screen',
-    about: 'System Profile:\n Name        : Asim Ali\n Role        : Backend Architect & AI Integration Engineer\n Experience  : 3+ Years in Laravel, PHP Core, and System Design\n Location    : Sahiwal, Pakistan\n Philosophy  : Creating performant database structures and asynchronous API microservices.',
-    skills: 'Technical Skills Matrix:\n [Backend]   : PHP (Laravel/Livewire, CodeIgniter 3), REST APIs\n [Databases] : MySQL (Advanced indexing, query tuning)\n [DevOps]    : Git, Apache/WAMP, Deployment workflows\n [SEO & Perf]: PageSpeed tuning, structured micro-data schemas\n [AI Dev]    : LLM fine-tuning API, autonomous agents, terminal simulators',
-    projects: 'Featured Projects Catalog:\n 1. ApnaSahiwal       - Local community portal\n 2. OSHAAcademy       - Enterprise LMS with PDF automation\n 3. AllToolPro        - 100+ Free Online SEO Tools suite\n 4. LuxLiving         - Luxury real estate engine (Dubai)\n 5. POS System        - Local-first offline-sync POS platform',
-    ai: 'AI Capabilities Integration:\n - Engineered custom API links to OpenAI and Claude models for content summaries.\n - Designed vector embeddings workflow for semantic searches in document management platforms.\n - Created prompt-optimization frameworks, saving 35% on token costs.\n - Built background job queues for large batch inference processing.',
-    contact: 'Connection Details:\n - Email    : asimgee105@gmail.com\n - Phone    : +92 315 4936412\n - GitHub   : github.com/asimgee\n - LinkedIn : linkedin.com/in/asim-ali-3b879729b/',
+    help: 'Available Commands:\n - <span class="success">about</span>      : Learn about my background\n - <span class="success">skills</span>     : View technical skill matrix\n - <span class="success">projects</span>   : List core software projects\n - <span class="success">services</span>   : View core web services I offer\n - <span class="success">contact</span>    : Get connection details\n - <span class="success">clear</span>      : Clear the screen',
+    about: 'System Profile:\n Name        : Asim Ali\n Role        : Laravel & PHP Backend Developer\n Experience  : 3+ Years in Laravel, PHP, CodeIgniter & MySQL\n Location    : Sahiwal, Pakistan\n Primary Goal: Helping companies and agencies build APIs, fix bugs, optimize databases, and maintain reliable apps.',
+    skills: 'Technical Skills Matrix:\n [Backend]   : PHP Core, Laravel MVC, CodeIgniter 3, RESTful APIs\n [Databases] : MySQL (indexing, query tuning), SQLite, IndexedDB\n [Frontend]  : HTML5, CSS3, JavaScript, Tailwind CSS, Bootstrap 5, jQuery\n [Tools]     : Git, GitHub, Composer, npm, cPanel, phpMyAdmin, Postman',
+    projects: 'Featured Case Studies:\n 1. ApnaSahiwal       - City directory with local GIS maps\n 2. OSHAAcademy       - Compliance LMS with PDF and Stripe automation\n 3. LuxLiving         - CodeIgniter property portal with XML sync feeds\n 4. Skillful Sahiwal  - Laravel HLS adaptive video transcoding system',
+    services: 'Offered Services:\n - Laravel & PHP backend developer feature coding\n - CodeIgniter maintenance, migration and improvements\n - MySQL query profiling, composite indexing & query optimization\n - Third-party REST API integrations (Stripe, Twilio, OpenAI, CRMs)\n - Bug fixing, server deployment assistance, monthly support',
+    contact: 'Connection Details:\n - Email    : asimgee105@gmail.com\n - Phone    : +92 315 4936412 (WhatsApp)\n - GitHub   : github.com/asimgee105\n - LinkedIn : linkedin.com/in/asim-ali-964b01426\n - Upwork   : upwork.com/freelancers/~01073d80632516b514\n - Fiverr   : fiverr.com/s/DBD9qAy\n - Contra   : contra.com/mirza_gee_jdk4bwj0',
 };
 
 // Start terminal welcome text
@@ -995,7 +1089,7 @@ if (contactForm) {
 // Typewriter Effect for Hero Subtitle
 const typedTextSpan = document.querySelector(".multiple-text");
 if (typedTextSpan) {
-    const textArray = ["Backend Architect", "PHP/Laravel Developer", "Full Stack Engineer", "AI Integration Developer"];
+    const textArray = ["Laravel Specialist", "PHP Backend Developer", "CodeIgniter Developer", "Web Application Developer"];
     const typingDelay = 100;
     const erasingDelay = 50;
     const newTextDelay = 1500;
@@ -1070,4 +1164,69 @@ if (document.readyState === "loading") {
 } else {
     initReveal();
 }
+
+// ==========================================================================
+// Dynamic Copyright Year, Project Filter, & Back to Top Setup
+// ==========================================================================
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. Dynamic copyright year
+    const yearEl = document.getElementById("current-year");
+    if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+    }
+
+    // 2. Project Tab Filtering
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    if (filterBtns.length > 0 && projectCards.length > 0) {
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Reset styles
+                filterBtns.forEach(b => {
+                    b.classList.remove('active');
+                    b.style.background = 'transparent';
+                    b.style.color = 'var(--text-secondary)';
+                });
+                // Highlight active button
+                btn.classList.add('active');
+                btn.style.background = 'var(--glass-bg)';
+                btn.style.color = 'var(--text-primary)';
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    const cat = card.getAttribute('data-category');
+                    if (filterValue === 'all' || cat === filterValue) {
+                        card.style.display = 'flex';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'scale(1)';
+                        }, 50);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'scale(0.95)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 250);
+                    }
+                });
+            });
+        });
+    }
+
+    // 3. Back to Top Button trigger
+    const backToTopBtn = document.getElementById("back-to-top-btn");
+    if (backToTopBtn) {
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 400) {
+                backToTopBtn.style.opacity = "1";
+                backToTopBtn.style.pointerEvents = "auto";
+            } else {
+                backToTopBtn.style.opacity = "0";
+                backToTopBtn.style.pointerEvents = "none";
+            }
+        });
+    }
+});
 
