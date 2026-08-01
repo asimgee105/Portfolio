@@ -172,9 +172,13 @@
         }
 
         @media print {
+            @page {
+                size: letter;
+                margin: 0.5in;
+            }
             body {
                 padding: 0;
-                font-size: 11pt;
+                font-size: 10pt;
             }
             a {
                 text-decoration: none;
@@ -198,12 +202,12 @@
             <div>Email: <a href="mailto:asimgee105@gmail.com">asimgee105@gmail.com</a></div>
             <div>Phone: +92 315 4936412</div>
             <div>Location: Sahiwal, Pakistan</div>
-            <div>Portfolio: <a href="https://asimgee105.github.io/Portfolio/" target="_blank">asimgee105.github.io/Portfolio</a></div>
-            <div>GitHub: <a href="https://github.com/asimgee105" target="_blank">github.com/asimgee105</a></div>
-            <div>LinkedIn: <a href="https://www.linkedin.com/in/asim-ali-964b01426" target="_blank">linkedin.com/in/asim-ali-964b01426</a></div>
-            <div>Upwork: <a href="https://www.upwork.com/freelancers/~01073d80632516b514" target="_blank">upwork.com/~01073d80632516b514</a></div>
-            <div>Fiverr: <a href="https://www.fiverr.com/s/DBD9qAy" target="_blank">fiverr.com/s/DBD9qAy</a></div>
-            <div>Contra: <a href="https://contra.com/mirza_gee_jdk4bwj0" target="_blank">contra.com/mirza_gee_jdk4bwj0</a></div>
+            <div>Portfolio: <a href="https://asimgee105.github.io/Portfolio/" target="_blank" rel="noopener noreferrer">asimgee105.github.io/Portfolio</a></div>
+            <div>GitHub: <a href="https://github.com/asimgee105" target="_blank" rel="noopener noreferrer">github.com/asimgee105</a></div>
+            <div>LinkedIn: <a href="https://www.linkedin.com/in/asim-ali-964b01426" target="_blank" rel="noopener noreferrer">linkedin.com/in/asim-ali-964b01426</a></div>
+            <div>Upwork: <a href="https://www.upwork.com/freelancers/~01073d80632516b514" target="_blank" rel="noopener noreferrer">upwork.com/~01073d80632516b514</a></div>
+            <div>Fiverr: <a href="https://www.fiverr.com/s/DBD9qAy" target="_blank" rel="noopener noreferrer">fiverr.com/s/DBD9qAy</a></div>
+            <div>Contra: <a href="https://contra.com/mirza_gee_jdk4bwj0" target="_blank" rel="noopener noreferrer">contra.com/mirza_gee_jdk4bwj0</a></div>
         </div>
     </header>
 
@@ -265,8 +269,8 @@
             </div>
             <ul>
                 <li>Maintained and scaled complex real-estate listings platforms in Laravel and CodeIgniter 3 for the UAE market.</li>
-                <li>Engineered automated, cron-scheduled XML parsing scripts that synchronized 20,000+ active property listings daily from multiple external data feeds.</li>
-                <li>Optimized slow multi-table database queries, reducing response times by 65% (from 2.4s to 430ms) through composite indexing and schema denormalization.</li>
+                <li>Engineered automated, cron-scheduled XML parsing scripts that synchronized a massive volume of active property listings daily from multiple external data feeds.</li>
+                <li>Optimized slow database queries, improving query response times and application load speeds through composite indexing and schema denormalization.</li>
                 <li>Implemented transactional database locks (`DB::transaction`) to safeguard payout processing systems against race conditions.</li>
             </ul>
         </div>
@@ -295,16 +299,16 @@
             <div class="project-tech">Laravel, MySQL, GIS, Google Maps API</div>
             <p class="project-desc">A digital directory and community hub for Sahiwal, featuring geospatial searches.</p>
             <ul>
-                <li>Coded geospatial SQL queries using MySQL GIS functions (`ST_Distance_Sphere`) to calculate distance offsets, loading results in under 500ms.</li>
+                <li>Coded geospatial SQL queries using MySQL GIS functions (`ST_Distance_Sphere`) to calculate distance offsets, optimizing distance query response latency.</li>
             </ul>
         </div>
 
         <div class="project-item">
-            <div class="project-title">OSHA Academy LMS</div>
-            <div class="project-tech">Laravel, Livewire, MySQL, Stripe API, Redis queues</div>
-            <p class="project-desc">Online certification system featuring exams, Stripe billing, and background PDF creation.</p>
+            <div class="project-title">POS Billing System</div>
+            <div class="project-tech">Core PHP, JavaScript, IndexedDB, AJAX, Bootstrap 5, MySQL</div>
+            <p class="project-desc">Point of Sale billing system allowing local checkout logs to sync when connection resumes.</p>
             <ul>
-                <li>Offloaded high-CPU HTML-to-PDF certificate generation tasks to background Redis queues, maintaining responsive UI operations during peak exam periods.</li>
+                <li>Engineered a local-first cashier transactional database in IndexedDB, running offline checkout queues and syncing logs to central servers upon reconnection.</li>
             </ul>
         </div>
 
@@ -313,7 +317,7 @@
             <div class="project-tech">CodeIgniter 3, MySQL, XML Sync Feeds, Google Maps API</div>
             <p class="project-desc">Luxury real estate portal matching UAE listings feed imports.</p>
             <ul>
-                <li>Wrote a chunk-based XML stream parser that handles 20k+ items without server timeouts, dropping heap memory overhead by 50%.</li>
+                <li>Wrote a chunk-based XML stream parser that handles large XML feeds without timeouts, optimizing heap memory usage.</li>
             </ul>
         </div>
 
@@ -335,7 +339,7 @@
                     <span class="job-title">Bachelor of Science in Computer Science (BS-CS)</span> | 
                     <span class="job-company">Govt. Postgraduate College Sahiwal</span>
                 </div>
-                <div class="job-date">2020 – 2023</div>
+                <div class="job-date">2022 – 2026 | Expected Graduation: 2026</div>
             </div>
         </div>
     </section>

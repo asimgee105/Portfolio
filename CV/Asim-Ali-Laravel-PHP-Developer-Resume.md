@@ -39,8 +39,8 @@ Detail-oriented Laravel & PHP Backend Developer with 3+ years of experience buil
 ### **Backend Developer** | HaddockSoft
 *May 2022 – December 2025*
 - Maintained and scaled complex real-estate listings platforms in Laravel and CodeIgniter 3 for the UAE market.
-- Engineered automated, cron-scheduled XML parsing scripts that synchronized 20,000+ active property listings daily from multiple external data feeds.
-- Optimized slow multi-table database queries, reducing response times by 65% (from 2.4s to 430ms) through composite indexing and schema denormalization.
+- Engineered automated, cron-scheduled XML parsing scripts that synchronized a massive volume of active property listings daily from multiple external data feeds.
+- Optimized slow database queries, improving query response times and application load speeds through composite indexing and schema denormalization.
 - Implemented transactional database locks (`DB::transaction`) to safeguard payout processing systems against race conditions.
 
 ### **Backend Developer Intern** | POS Management Project Team
@@ -53,20 +53,20 @@ Detail-oriented Laravel & PHP Backend Developer with 3+ years of experience buil
 
 ## Selected Projects
 
-### **ApnaSahiwal City Portal** | [GitHub Repo](https://github.com/asimgee105/apnasahiwal)
+### **ApnaSahiwal City Portal**
 - **Description:** A digital business directory and local classifieds portal featuring map searches.
 - **Technologies:** PHP, Laravel, MySQL, Bootstrap 5, Google Maps API.
-- **Key Achievements:** Coded geospatial SQL queries using MySQL GIS functions (`ST_Distance_Sphere`) to calculate distance offsets, loading results in under 500ms.
+- **Key Achievements:** Coded geospatial SQL queries using MySQL GIS functions (`ST_Distance_Sphere`) to calculate distance offsets, optimizing distance query response latency.
 
-### **OSHA Academy LMS** | [GitHub Repo](https://github.com/asimgee105/OSHAAcademy)
-- **Description:** An online compliance training LMS featuring randomized timed exams and certification.
-- **Technologies:** Laravel, Livewire, MySQL, Tailwind CSS, Stripe API, Dompdf.
-- **Key Achievements:** Offloaded high-CPU HTML-to-PDF certificate generation tasks to background Redis queues, maintaining responsive UI operations during peak exam periods.
+### **POS Billing System** | Private Client Project
+- **Description:** A point-of-sale billing system allowing local store checkout logs to cache and sync.
+- **Technologies:** Core PHP, JavaScript, IndexedDB, AJAX, Bootstrap 5, MySQL.
+- **Key Achievements:** Engineered a local-first cashier transactional database in IndexedDB, running offline checkout queues and syncing logs to central servers upon reconnection.
 
 ### **LuxLiving UAE Real Estate** | Private Client Project
 - **Description:** Property listings engine with automated external feed XML syncing.
 - **Technologies:** PHP, CodeIgniter 3, MySQL, Tailwind CSS, Google Maps API.
-- **Key Achievements:** Wrote a chunk-based XML stream parser that handles 20k+ items without server timeouts, dropping heap memory overhead by 50%.
+- **Key Achievements:** Wrote a chunk-based XML stream parser that handles large XML feeds without timeouts, optimizing heap memory usage.
 
 ### **AllToolPro SEO Platform** | [GitHub Repo](https://github.com/asimgee105/alltoolpro)
 - **Description:** A suite of 100+ free online meta, speed, and parsing tools.
@@ -78,5 +78,5 @@ Detail-oriented Laravel & PHP Backend Developer with 3+ years of experience buil
 ## Education
 
 ### **Bachelor of Science in Computer Science (BS-CS)**
-*Govt. Postgraduate College Sahiwal (2020 – 2023)*
+*Govt. Postgraduate College Sahiwal (2022 – 2026) | Expected Graduation: 2026*
 - Core coursework: Database Management Systems, Data Structures & Algorithms, Software Engineering, OOP.

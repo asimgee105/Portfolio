@@ -314,11 +314,11 @@ async function fetchGitHubStats() {
             forks_count: 2
         },
         {
-            name: 'OSHAAcademy',
-            description: 'Laravel compliance LMS featuring course builder, timed quizzes, and Stripe checkout payments.',
-            html_url: 'https://github.com/asimgee105/OSHAAcademy',
+            name: 'superdollarsahiwal',
+            description: 'Financial web portal providing daily local currency conversion rate history and XML tracking, built in Laravel.',
+            html_url: 'https://github.com/asimgee105/superdollarsahiwal',
             language: 'PHP',
-            stargazers_count: 4,
+            stargazers_count: 2,
             forks_count: 1
         },
         {
@@ -365,9 +365,9 @@ async function fetchGitHubStats() {
         avatarEl.src = 'img/asim-profile-new.webp';
         document.getElementById('github-name').textContent = 'Asim Ali';
         document.getElementById('github-bio').textContent = 'Laravel & PHP Backend Developer | REST APIs & MySQL';
-        document.getElementById('github-repos-count').textContent = '12';
-        document.getElementById('github-followers').textContent = '5';
-        document.getElementById('github-stars-count').textContent = '15';
+        document.getElementById('github-repos-count').textContent = '14';
+        document.getElementById('github-followers').textContent = '—';
+        document.getElementById('github-stars-count').textContent = '—';
         renderRepos(fallbackRepos);
     }
 
@@ -476,8 +476,8 @@ const terminalCommands = {
     help: 'Available Commands:\n - <span class="success">about</span>      : Learn about my background\n - <span class="success">skills</span>     : View technical skill matrix\n - <span class="success">projects</span>   : List core software projects\n - <span class="success">services</span>   : View core web services I offer\n - <span class="success">contact</span>    : Get connection details\n - <span class="success">clear</span>      : Clear the screen',
     about: 'System Profile:\n Name        : Asim Ali\n Role        : Laravel & PHP Backend Developer\n Experience  : 3+ Years in Laravel, PHP, CodeIgniter & MySQL\n Location    : Sahiwal, Pakistan\n Primary Goal: Helping companies and agencies build APIs, fix bugs, optimize databases, and maintain reliable apps.',
     skills: 'Technical Skills Matrix:\n [Backend]   : PHP Core, Laravel MVC, CodeIgniter 3, RESTful APIs\n [Databases] : MySQL (indexing, query tuning), SQLite, IndexedDB\n [Frontend]  : HTML5, CSS3, JavaScript, Tailwind CSS, Bootstrap 5, jQuery\n [Tools]     : Git, GitHub, Composer, npm, cPanel, phpMyAdmin, Postman',
-    projects: 'Featured Case Studies:\n 1. ApnaSahiwal       - City directory with local GIS maps\n 2. OSHAAcademy       - Compliance LMS with PDF and Stripe automation\n 3. LuxLiving         - CodeIgniter property portal with XML sync feeds\n 4. Skillful Sahiwal  - Laravel HLS adaptive video transcoding system',
-    services: 'Offered Services:\n - Laravel & PHP backend developer feature coding\n - CodeIgniter maintenance, migration and improvements\n - MySQL query profiling, composite indexing & query optimization\n - Third-party REST API integrations (Stripe, Twilio, OpenAI, CRMs)\n - Bug fixing, server deployment assistance, monthly support',
+    projects: 'Featured Case Studies:\n 1. ApnaSahiwal       - City directory with local GIS maps\n 2. POS Billing System - Local-first offline-sync POS platform\n 3. LuxLiving         - CodeIgniter property portal with XML sync feeds\n 4. Skillful Sahiwal  - Laravel HLS adaptive video transcoding system',
+    services: 'Offered Services:\n - Laravel & PHP backend developer feature coding\n - CodeIgniter maintenance and improvements\n - MySQL query profiling, indexing & query optimization\n - Third-party REST API integrations (Stripe, Twilio, OpenAI)\n - Bug fixing, server deployment assistance, monthly support',
     contact: 'Connection Details:\n - Email    : asimgee105@gmail.com\n - Phone    : +92 315 4936412 (WhatsApp)\n - GitHub   : github.com/asimgee105\n - LinkedIn : linkedin.com/in/asim-ali-964b01426\n - Upwork   : upwork.com/freelancers/~01073d80632516b514\n - Fiverr   : fiverr.com/s/DBD9qAy\n - Contra   : contra.com/mirza_gee_jdk4bwj0',
 };
 
@@ -538,7 +538,7 @@ const projectData = {
             "Configured multi-column MySQL composite indexing on search columns.",
             "Integrated MySQL GIS functions (like ST_Distance_Sphere) to calculate real-time distance calculations from coordinates."
         ],
-        performance: "Implemented query caching using Laravel Redis caching. Decreased directory page loads by 82% (from 2.4s to 430ms).",
+        performance: "Implemented query caching using Laravel Redis caching to improve directory page load speeds and backend efficiency.",
         seo: "Implemented LocalBusiness and Breadcrumb schemas, dynamic daily sitemap builders, and SEO-optimized URLs.",
         ai: "Integrated automated spam filter utilizing lightweight RegExp-based classification to screen job applications.",
         db: [
@@ -548,34 +548,7 @@ const projectData = {
         ],
         apis: "Google Maps API for plotting pins, custom REST API endpoints for internal directory requests."
     },
-    oshaacademy: {
-        title: "OSHA Academy LMS",
-        image: "img/portfolio pics/oshaacademy.webp",
-        role: "Full Stack Laravel Developer",
-        tech: "Laravel, Livewire, MySQL, Tailwind CSS, Stripe API, Dompdf",
-        features: [
-            "Video lecture streaming player with course completion milestones.",
-            "Timed compliance quizzes with randomized question sets.",
-            "Automated PDF certificate generation upon passing quizzes.",
-            "Dynamic course builder with drag-and-drop structures."
-        ],
-        challenges: [
-            "High memory spikes and CPU usage during PDF certificate generation when hundreds of students complete courses concurrently."
-        ],
-        solutions: [
-            "Offloaded PDF certificate assembly to background job workers via Laravel Queues with Redis.",
-            "Optimized CSS styling inside HTML-to-PDF templates to speed up generation threads."
-        ],
-        performance: "Page responses remained responsive during heavy traffic. Certificate creation takes under 3 seconds asynchronous.",
-        seo: "Configured Course and Breadcrumb Schemas for rich Google search listing card displays.",
-        ai: "AI Quiz generator: Developed a background tool utilizing OpenAI API to suggest relevant review questions based on lecture notes.",
-        db: [
-            { name: "courses", desc: "id, title, slug, description, image_path, price" },
-            { name: "quizzes", desc: "id, course_id, passing_score, duration_minutes" },
-            { name: "certificates", desc: "id, student_id, course_id, certificate_number, created_at" }
-        ],
-        apis: "Stripe API for credit card transaction processing, OpenAI API, and post-completion webhooks."
-    },
+
     alltoolpro: {
         title: "AllToolPro SEO Platform",
         image: "img/portfolio pics/alltoolpro-image.webp",
@@ -606,21 +579,20 @@ const projectData = {
     luxliving: {
         title: "LuxLiving Real Estate",
         image: "img/portfolio pics/Luxliving.webp",
-        role: "Lead Backend Developer",
+        role: "Backend Developer",
         tech: "PHP, CodeIgniter 3, MySQL, Tailwind CSS, AJAX, Google Maps API",
         features: [
-            "Advanced property listings search with multi-select tags.",
-            "Sync engine to pull listing updates from external XML sources.",
-            "Agent admin board to upload listing details and images.",
-            "WhatsApp lead submit and calendar scheduling buttons."
+            "Real-estate listings portal matching UAE listings.",
+            "Dynamic property search filters with coordinate markers.",
+            "Cron jobs loading XML data feeds dynamically."
         ],
         challenges: [
-            "Parser slowdowns and timeouts when syncing massive 20,000+ item property database files."
+            "Parser slowdowns and timeouts when syncing massive property database files from external feeds."
         ],
         solutions: [
-            "Wrote a chunk-based CLI parser utilizing PHP XMLReader, executed in background tasks via cron schedules."
+            "Wrote custom XML parsers that ingest records in chunks using database save state indices."
         ],
-        performance: "Sync tasks complete under 4 minutes with minimal memory footprint. Page load speeds under 500ms.",
+        performance: "Optimized parsing execution time and reduced memory usage to maintain high page load performance.",
         seo: "RealEstateAgent structured data, dynamic SEO-friendly listings names, and automated canonical URLs.",
         ai: "Recommendation module: Analyzes search history and suggests matching luxury listings within budget limits.",
         db: [
@@ -682,7 +654,7 @@ const projectData = {
     ibazar: {
         title: "iBazar E-commerce Platform",
         image: "img/portfolio pics/ibazar.webp",
-        role: "Senior Laravel Developer",
+        role: "Backend Developer",
         tech: "PHP, Laravel, Livewire, MySQL, Tailwind CSS, Stripe API",
         features: [
             "Multi-vendor store registration and dashboard charts.",
@@ -696,7 +668,7 @@ const projectData = {
         solutions: [
             "Wrapped the checkout process inside strict database transactions (DB::transaction) to ensure updates commit or rollback together."
         ],
-        performance: "Fixed N+1 database querying issues by using eager load bindings. Reduced server response query counts from 110 to 14.",
+        performance: "Optimized database query structures by using eager loading to resolve N+1 execution bottlenecks.",
         seo: "Product schemas, sitemap, category indexing, and unique meta descriptions.",
         ai: "Recommendation carousel: Implemented client-side collaborative filtering to display trending products to users.",
         db: [
@@ -709,7 +681,7 @@ const projectData = {
     pos: {
         title: "Modular POS Management System",
         image: "img/portfolio pics/point-of-sale.webp",
-        role: "Lead Developer",
+        role: "Backend Developer",
         tech: "Core PHP, JavaScript, IndexedDB, AJAX, Bootstrap 5, MySQL",
         features: [
             "Fast inventory checkout supporting keyboard barcode scans.",
@@ -723,7 +695,7 @@ const projectData = {
         solutions: [
             "Engineered local database caching inside the browser using IndexedDB. Sales sync to MySQL once online status returns."
         ],
-        performance: "Checkout invoice execution under 300ms. Offline sync jobs take under 2 seconds.",
+        performance: "Optimized offline database synchronizations to occur with minimal backend latency.",
         seo: "Internal tool structure: excluded from search engines using header rules.",
         ai: "Predictive inventory: Developed forecasting algorithm to alert cashiers on items nearing reorder points based on monthly averages.",
         db: [
@@ -736,7 +708,7 @@ const projectData = {
     ai_binance: {
         title: "AI Binance Trading Platform",
         image: "img/portfolio pics/ai-binance.jpg",
-        role: "Lead Developer",
+        role: "Project Developer",
         tech: "Node.js, TypeScript, Binance API, TensorFlow.js, Websockets, MongoDB",
         features: [
             "Real-time order book scanning & live transaction pipelines.",
@@ -752,7 +724,7 @@ const projectData = {
             "Implemented request queue handlers with sliding window rate limiting.",
             "Programmed garbage collection calls and memory tracking profiles."
         ],
-        performance: "Consistent execution latency under 45ms. Zero trade queue dropping.",
+        performance: "Optimized Websocket messaging pipelines to handle market volatility without dropping execution queues.",
         seo: "Private algorithmic repository, indexation excluded.",
         ai: "TensorFlow.js classification: predicts short-term price momentum shifts.",
         db: [
@@ -779,7 +751,7 @@ const projectData = {
         solutions: [
             "Applied AES-256 field encryption layers inside Laravel Eloquent models."
         ],
-        performance: "Database listing queries load in under 120ms utilizing covering indexes.",
+        performance: "Optimized database queries using covering indexes to ensure high performance.",
         seo: "MedicalWebPage & Physician structured data markup schemas.",
         ai: "Medical AI Assistant: Simple symptoms checklist logic to advise specialties.",
         db: [
@@ -806,7 +778,7 @@ const projectData = {
         solutions: [
             "Designed flexbox comparison tables and lazy-loaded detail elements."
         ],
-        performance: "Instant device comparison loading under 100ms. Perfect 100/100 mobile score.",
+        performance: "Optimized comparisons loading speeds and responsive layouts.",
         seo: "Product and SpecSheet schema tags for rich search snippet cards.",
         ai: "Smart Recommender: Matches models to user budgets and hardware choices.",
         db: [
@@ -818,7 +790,7 @@ const projectData = {
     remotedev_ai: {
         title: "RemoteDev AI Reviewer",
         image: "img/portfolio pics/remotedev-ai.jpg",
-        role: "Lead Developer",
+        role: "Project Developer",
         tech: "TypeScript, Node.js, OpenAI API, GitHub Octokit, Express",
         features: [
             "Automated pull request code review analysis.",
@@ -832,7 +804,7 @@ const projectData = {
         solutions: [
             "Developed diff chunk parsers that strip lock files, assets, and vendor files."
         ],
-        performance: "PR analysis logs complete in under 8 seconds. Review count limits kept.",
+        performance: "Optimized diff processing routines to maintain low analysis latency.",
         seo: "GitHub App Store landing pages optimized for organic developer keywords.",
         ai: "OpenAI GPT-4o integration: reads code structures and targets logic fixes.",
         db: [
@@ -858,7 +830,7 @@ const projectData = {
         solutions: [
             "Used Hive DB local storage, launching automatic background sync queues."
         ],
-        performance: "Exchange screen rendering rate runs at a smooth 120fps. Latency under 80ms.",
+        performance: "Optimized mobile screen rendering performance and caching.",
         seo: "Google Play Store app metadata optimization and app links schemas.",
         ai: "Exchange forecasting: Tracks currency rate trends and forecasts day changes.",
         db: [
@@ -884,7 +856,7 @@ const projectData = {
         solutions: [
             "Configured Laravel Queue jobs running concurrently with proxy rotating APIs."
         ],
-        performance: "Background rate scraping completes in 45s. SQL reads take under 50ms.",
+        performance: "Optimized daily rate scrapers and database query executions.",
         seo: "Local currency exchanger structured data and breadcrumb navigation tags.",
         ai: "Anomaly screening: Detects rate entry inputs out of standard standard deviations.",
         db: [
@@ -910,7 +882,7 @@ const projectData = {
         solutions: [
             "Integrated virtual scroller elements to render only elements visible in viewport."
         ],
-        performance: "Cart updates execute instantly (0ms). Page routing transition under 150ms.",
+        performance: "Optimized card updates execution and page routing transitions.",
         seo: "Search engine crawl schemas, dynamic meta title keywords, and sitemap.",
         ai: "Similar Item recommendations: matches item properties for listing carousels.",
         db: [
@@ -931,12 +903,12 @@ const projectData = {
             "Social share bookmark overlays."
         ],
         challenges: [
-            "Keeping page speed scores above 95 on mobile pages containing large graphics."
+            "Keeping page speed scores high on mobile pages containing large graphics."
         ],
         solutions: [
             "Used WebP image formatting, responsive srcset markers, and lazy loading."
         ],
-        performance: "Page Speed index score of 98 on mobile, and 100 on desktop viewports.",
+        performance: "Optimized image delivery speeds and responsive viewport layout rendering.",
         seo: "BlogPosting & Article JSON-LD schema graphs, index header redirects.",
         ai: "Auto Tags: Suggests post category terms based on content heading patterns.",
         db: [
