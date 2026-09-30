@@ -1,0 +1,75 @@
+name: Refresh portfolio from current CV
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/scripts/portfolio_refresh.py'
+      - '.github/workflows/refresh-portfolio.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install PDF dependency
+        run: python -m pip install reportlab
+
+      - name: Apply CV-aligned portfolio refresh
+        run: python .github/scripts/portfolio_refresh.py
+
+      - name: Validate generated files
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from html.parser import HTMLParser
+          html = Path('index.html').read_text(encoding='utf-8')
+          css = Path('css/style.css').read_text(encoding='utf-8')
+          required = [
+              'Senior Laravel Backend Developer',
+              '4+ years of experience',
+              'Aug 2025 - Present',
+              '2022 - Aug 2025',
+              '2024 - Present',
+              'Modern <span class="text-gradient">Backend Services</span>',
+          ]
+          missing = [x for x in required if x not in html]
+          if missing:
+              raise SystemExit(f'Missing expected content: {missing}')
+          if css.count('{') != css.count('}'):
+              raise SystemExit('CSS brace mismatch')
+          HTMLParser().feed(html)
+          for path in [
+              'CV/Asim-Ali-Laravel-PHP-Developer-Resume.md',
+              'CV/Asim-Ali-Laravel-PHP-Developer-Resume.html',
+              'CV/Asim-Ali-Laravel-PHP-Developer-Resume.pdf',
+          ]:
+              if not Path(path).exists() or Path(path).stat().st_size == 0:
+                  raise SystemExit(f'Missing/empty generated file: {path}')
+          print('Validation passed')
+          PY
+
+      - name: Commit generated portfolio
+        run: |
+          git config user.name "Asim Portfolio Bot"
+          git config user.email "160614209+asimgee105@users.noreply.github.com"
+          git add index.html css/style.css CV/Asim-Ali-Laravel-PHP-Developer-Resume.md CV/Asim-Ali-Laravel-PHP-Developer-Resume.html CV/Asim-Ali-Laravel-PHP-Developer-Resume.pdf
+          if git diff --cached --quiet; then
+            echo "No generated changes to commit"
+          else
+            git commit -m "Refresh portfolio from professional CV"
+            git push origin main
+          fi
