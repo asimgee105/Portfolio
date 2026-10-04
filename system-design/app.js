@@ -1,0 +1,1 @@
+document.querySelectorAll('[data-stage]').forEach(btn=>{btn.addEventListener('click',()=>{const group=btn.closest('.lab');group.querySelectorAll('[data-stage]').forEach(b=>b.classList.remove('active'));group.querySelectorAll('.stage').forEach(s=>s.classList.remove('active'));btn.classList.add('active');group.querySelector('#'+btn.dataset.stage).classList.add('active')})});
