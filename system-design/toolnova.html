@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ToolNova Utility Platform Architecture | Asim Ali</title>
+<meta name="description" content="ToolNova system design case study by Asim Ali: browser-first Laravel utility platform with 50 tools, custom CMS, SEO, security, CI/CD, caching and scaling from one user to millions.">
+<link rel="canonical" href="https://asimgee105.github.io/Portfolio/system-design/toolnova.html">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar"><div class="shell nav"><a class="brand" href="../index.html">ASIM <span>ALI</span></a><nav class="navlinks"><a href="../index.html">Portfolio Home</a><a href="index.html">System Design</a><a class="active" href="toolnova.html">ToolNova</a></nav></div></header>
+<main class="shell">
+<section class="page-hero">
+<span class="eyebrow">Case Study 05 · Browser-first Utility Platform</span>
+<h1>ToolNova — 50-Tool Laravel Platform</h1>
+<p>ToolNova is a custom Laravel 13 utility platform built around a browser-first processing model. PDF, image, calculator, converter, text, developer, color and generator tools execute in the user's browser wherever practical, while Laravel handles SEO-friendly pages, the custom admin/CMS, configuration, contact messages, usage counters, security and database-backed content. That design changes how the system scales: most expensive tool computation stays on the client instead of consuming application-server CPU.</p>
+<div class="source-bar"><a class="btn primary" href="index.html">System Design Lab</a><a class="btn secondary" href="../index.html#portfolio">Portfolio Projects</a><a class="btn secondary" href="../index.html">Portfolio Home</a></div>
+</section>
+
+<section class="lab">
+<div class="stage-tabs">
+<button class="stage-btn active" data-stage="tn-1">1 user</button>
+<button class="stage-btn" data-stage="tn-100">~100 users</button>
+<button class="stage-btn" data-stage="tn-1m">~1M users</button>
+<button class="stage-btn" data-stage="tn-10m">~10M users</button>
+</div>
+
+<div id="tn-1" class="stage active">
+<div class="stage-title"><h2>1 user — browser-first monolith</h2><span class="capacity">1 LARAVEL APP + MYSQL</span></div>
+<div class="arch-canvas">
+<div class="flow"><div class="node">Browser<small>tool UI + processing</small></div><div class="arrow"><i class="packet"></i></div><div class="node hot">Laravel #1<small>Blade / SEO / CMS</small></div><div class="arrow"><i class="packet"></i></div><div class="node data">MySQL #1<small>tools / content / settings</small></div></div>
+<div class="arch-note">
+<div class="note good"><h4>Why browser-first?</h4><p>Most calculations, text transforms and file operations happen locally. The server mainly delivers the page and metadata instead of processing every user file.</p></div>
+<div class="note warn"><h4>Server responsibility</h4><p>Laravel renders indexable pages, manages admin authentication/CMS data, stores contact messages and records lightweight daily usage counters.</p></div>
+<div class="note change"><h4>Keep it simple</h4><p>One app instance and one database are enough. No queue cluster, load balancer or replica is justified at this scale.</p></div>
+</div></div></div>
+
+<div id="tn-100" class="stage">
+<div class="stage-title"><h2>~100 users — cache the read-heavy catalog</h2><span class="capacity">1–2 APP INSTANCES</span></div>
+<div class="arch-canvas">
+<div class="flow"><div class="node">Browsers<small>client-side tools</small></div><div class="arrow"><i class="packet"></i></div><div class="node warn">CDN / Static Cache</div><div class="arrow"><i class="packet"></i></div><div class="node hot">Laravel #1–2</div><div class="arrow"><i class="packet"></i></div><div class="node hot">App Cache<small>settings / search index</small></div><div class="arrow"><i class="packet"></i></div><div class="node data">MySQL Primary</div></div>
+<div class="arch-note">
+<div class="note good"><h4>Read-heavy workload</h4><p>Home, category and tool pages dominate traffic. Application caching keeps navigation settings and the tool search index out of repeated database queries.</p></div>
+<div class="note warn"><h4>Static assets</h4><p>Long-lived caching and compression reduce repeat requests for CSS, JavaScript and icons. Tool-specific JavaScript stays off the homepage.</p></div>
+<div class="note change"><h4>Security stays centralized</h4><p>CSRF, rate limiting, admin authorization, CSP/security headers and no-store admin responses remain enforced by Laravel and the edge/web server.</p></div>
+</div></div></div>
+
+<div id="tn-1m" class="stage">
+<div class="stage-title"><h2>~1 million users — stateless Laravel pool + edge delivery</h2><span class="capacity">4–12 APP INSTANCES*</span></div>
+<div class="arch-canvas">
+<div class="flow"><div class="node">Global Browsers<small>local tool execution</small></div><div class="arrow"><i class="packet"></i></div><div class="node warn">CDN / WAF / LB</div><div class="arrow"><i class="packet"></i></div><div class="node hot">Laravel Pool<small>stateless web nodes</small></div><div class="arrow"><i class="packet"></i></div><div class="node hot">Redis<small>cache / sessions / rate limits</small></div><div class="arrow"><i class="packet"></i></div><div class="node data">MySQL Primary + Replica</div><div class="arrow"><i class="packet"></i></div><div class="node warn">Observability<small>metrics / logs / alerts</small></div></div>
+<div class="arch-note">
+<div class="note good"><h4>Why horizontal app scaling?</h4><p>Laravel nodes become stateless so the load balancer can spread SEO page, admin and API-like requests across healthy instances.</p></div>
+<div class="note warn"><h4>Database strategy</h4><p>Most public traffic is read-heavy. Cache and a safe read replica can absorb catalog/SEO reads while the primary keeps admin edits, contacts and counters authoritative.</p></div>
+<div class="note change"><h4>Client compute is the advantage</h4><p>A million tool users do not equal a million server-side conversions. Browser-side PDF/image/text work removes a major CPU and temporary-storage bottleneck.</p></div>
+</div></div></div>
+
+<div id="tn-10m" class="stage">
+<div class="stage-title"><h2>~10 million users — edge-first global delivery</h2><span class="capacity">REGIONAL APP FLEETS*</span></div>
+<div class="arch-canvas">
+<div class="flow"><div class="node">Worldwide Users</div><div class="arrow"><i class="packet"></i></div><div class="node warn">Global CDN / WAF<small>HTML/static edge cache</small></div><div class="arrow"><i class="packet"></i></div><div class="node hot">Regional Laravel Fleets</div><div class="arrow"><i class="packet"></i></div><div class="node hot">Regional Redis</div><div class="arrow"><i class="packet"></i></div><div class="node data">Primary Data + Read Replicas</div><div class="arrow"><i class="packet"></i></div><div class="node warn">Metrics / Logs / Backups</div></div>
+<div class="arch-note">
+<div class="note good"><h4>Edge-first delivery</h4><p>Cache public, mostly-static tool pages and assets close to users. Origin Laravel handles misses, admin changes and dynamic actions rather than every repeat page view.</p></div>
+<div class="note warn"><h4>Failure isolation</h4><p>Regional application and cache pools reduce blast radius. Health checks, rate limits, alerts and backup verification become mandatory operational controls.</p></div>
+<div class="note change"><h4>Future server-side tools</h4><p>If later tools require heavy server processing, place them behind dedicated processing APIs, queues/workers and private object storage instead of blocking normal web requests.</p></div>
+</div></div></div>
+
+<div class="callout"><h3>*Capacity comes from traffic measurements, not registered-user counts</h3><p>ToolNova is unusually efficient because many tools run in the browser. Size Laravel nodes from actual page requests per second, cache hit rate, admin/write traffic, PHP-FPM utilization and database latency. Add dedicated processing workers only for features that truly require server-side computation.</p></div>
+</section>
+
+<section class="section">
+<div class="section-head"><div><span class="eyebrow">Application Architecture</span><h2>What the production system contains</h2></div><p>The project is more than 50 screens. It combines a reusable tool registry, custom CMS, SEO layer, security controls and a deployment pipeline around the browser-first tool engine.</p></div>
+<div class="grid">
+<article class="card"><div class="tags"><span class="tag">Laravel 13</span><span class="tag">Blade</span><span class="tag">MySQL</span></div><h3>Web & CMS Layer</h3><p>Laravel serves Home, All Tools, Categories, individual tool pages, legal pages, contact, sitemap/robots and a custom admin for tools, categories, hero slides, FAQs, pages, settings and profile management.</p></article>
+<article class="card"><div class="tags"><span class="tag">50 Tools</span><span class="tag">Client-side</span></div><h3>Tool Engine</h3><p>A handler-key registry maps database tool records to browser logic. PDF, image, calculator, converter, text, developer, color and generator families share reusable UI/processing patterns.</p></article>
+<article class="card"><div class="tags"><span class="tag">SEO</span><span class="tag">JSON-LD</span></div><h3>Search Visibility</h3><p>Clean slugs, canonical URLs, Open Graph/Twitter metadata, breadcrumbs, dynamic sitemap/robots and structured data support indexable utility pages without thin duplicate content.</p></article>
+<article class="card"><div class="tags"><span class="tag">CSP</span><span class="tag">CSRF</span><span class="tag">Rate Limits</span></div><h3>Security</h3><p>Security headers, CSRF, admin authorization, login/contact throttles, strong admin password rules, validated avatar uploads, no-store/noindex admin responses and environment-based secrets protect the management layer.</p></article>
+<article class="card"><div class="tags"><span class="tag">CI</span><span class="tag">GitHub Actions</span></div><h3>Quality Pipeline</h3><p>CI validates Composer, installs dependencies, runs MySQL migrations/seeders, checks PHP/JavaScript syntax, boots Laravel, performs dependency audit and HTTP smoke tests.</p></article>
+<article class="card"><div class="tags"><span class="tag">Backups</span><span class="tag">Scheduler</span></div><h3>Operations</h3><p>A scheduled MySQL backup command with retention, production environment template, cache/compression rules and deployment checklist cover operational handover beyond local development.</p></article>
+</div>
+</section>
+
+<section class="section">
+<div class="section-head"><div><span class="eyebrow">Request Flow</span><h2>How a normal tool request works</h2></div></div>
+<div class="arch-canvas"><div class="flow"><div class="node">User opens tool URL</div><div class="arrow"><i class="packet"></i></div><div class="node warn">Laravel Route</div><div class="arrow"><i class="packet"></i></div><div class="node hot">Tool record + SEO content</div><div class="arrow"><i class="packet"></i></div><div class="node">Browser loads handler</div><div class="arrow"><i class="packet"></i></div><div class="node data">Local processing<small>result/download</small></div></div>
+<div class="arch-note"><div class="note good"><h4>Privacy</h4><p>Where practical, user files remain in the browser rather than being uploaded to the server.</p></div><div class="note warn"><h4>Performance</h4><p>Only the relevant tool page loads its processing code; the homepage does not carry the full tool engine.</p></div><div class="note change"><h4>CMS control</h4><p>Admin edits title, descriptions, FAQs, related tools, SEO and publishing state without changing the processing algorithm.</p></div></div></div>
+</section>
+
+<section class="section">
+<div class="section-head"><div><span class="eyebrow">Engineering Decisions</span><h2>Key trade-offs</h2></div></div>
+<table class="compare"><thead><tr><th>Decision</th><th>Why it helps</th><th>Trade-off</th></tr></thead><tbody>
+<tr><td>Browser-side file processing</td><td>Lower server CPU/storage cost and stronger privacy</td><td>Large files are limited by device memory/browser capability</td></tr>
+<tr><td>Database-driven tool catalog</td><td>CMS can manage content/SEO/order without duplicating templates</td><td>Processing handlers still require reviewed code</td></tr>
+<tr><td>Custom admin</td><td>Brand-consistent controls tailored to ToolNova</td><td>More code to maintain than an off-the-shelf panel</td></tr>
+<tr><td>CDN vendor scripts for selected libraries</td><td>Small initial repository and browser caching</td><td>External availability/CSP dependency; self-hosting is stronger for controlled production</td></tr>
+<tr><td>Read-heavy caching</td><td>Tool/category/navigation data changes slowly but is requested often</td><td>Cache invalidation must happen after admin updates</td></tr>
+<tr><td>Client-first scaling</td><td>User tool work does not linearly increase backend compute</td><td>Server-side advanced processing needs a separate scalable path later</td></tr>
+</tbody></table>
+</section>
+
+<div class="source-bar"><a class="btn primary" href="index.html">← System Design Lab</a><a class="btn secondary" href="../index.html#portfolio">Portfolio Projects</a></div>
+</main>
+<footer class="footer"><div class="shell"><a href="pos-system.html">← POS System</a> · <a href="../index.html">Portfolio Home</a> · <a href="index.html">System Design Lab</a><br><br>ToolNova architecture case study — Asim Ali.</div></footer>
+<script src="app.js"></script>
+</body></html>
