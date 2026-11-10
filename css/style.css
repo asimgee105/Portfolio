@@ -245,11 +245,30 @@ header.sticky {
     text-decoration: none;
 }
 
+/* Desktop navigation: keep every item on a single line */
+header nav {
+    flex: 1;
+    min-width: 0;
+    margin: 0 1.5rem;
+}
+
 nav ul {
     display: flex;
-    gap: 2.2rem;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: clamp(0.55rem, 1.15vw, 1.1rem);
     list-style: none;
     align-items: center;
+    white-space: nowrap;
+}
+
+nav ul li {
+    flex: 0 0 auto;
+}
+
+nav ul li a {
+    white-space: nowrap;
+    font-size: clamp(0.78rem, 0.9vw, 0.9rem);
 }
 
 nav ul li a {
@@ -1292,6 +1311,19 @@ footer p {
 }
 
 @media (max-width: 768px) {
+    header nav {
+        flex: initial;
+        min-width: initial;
+        margin: 0;
+    }
+    nav ul {
+        flex-wrap: nowrap;
+        white-space: normal;
+        justify-content: flex-start;
+    }
+    nav ul li a {
+        font-size: 0.95rem;
+    }
     #menu-icon {
         display: block;
     }
