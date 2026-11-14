@@ -1,0 +1,102 @@
+/* Reference hero composition — desktop split stage, mobile portrait stage */
+.hero-cinematic{
+  display:grid!important;
+  grid-template-columns:minmax(0,.94fr) minmax(0,1.06fr);
+  align-items:center!important;
+  justify-content:stretch!important;
+  gap:clamp(22px,3.2vw,56px)!important;
+  width:min(1460px,calc(100% - 72px))!important;
+  min-height:min(900px,calc(100svh - var(--nav-height)))!important;
+  padding:calc(var(--nav-height) + 28px) 0 54px!important;
+  margin-inline:auto;
+  overflow:hidden;
+}
+.hero-cinematic .hero-intro{
+  grid-column:1; grid-row:1;
+  width:100%; max-width:650px;
+  align-self:center;
+  animation:heroIntroReveal .8s ease both;
+}
+.hero-cinematic .hero-visual{
+  grid-column:2; grid-row:1;
+  width:100%; min-width:0;
+  height:min(790px,calc(100svh - 100px));
+  min-height:620px;
+  align-self:stretch;
+  position:relative;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  overflow:visible;
+}
+.hero-cinematic .hero-visual-glow{
+  width:100%;height:85%;left:0;bottom:2%;
+  background:radial-gradient(ellipse,rgba(0,145,255,.3),rgba(0,64,145,.13) 50%,transparent 73%);
+}
+.hero-cinematic .hero-portal{
+  width:min(86%,570px);height:84%;left:7%;bottom:5%;
+  border-width:2px;
+  border-radius:50% 50% 5% 5% / 43% 43% 5% 5%;
+}
+.hero-cinematic .hero-portrait-stage{
+  width:min(100%,590px);height:100%;max-height:790px;
+  align-items:flex-end;justify-content:center;
+}
+.hero-cinematic .hero-walking-portrait{
+  width:100%;height:100%;
+  object-fit:contain;object-position:center bottom;
+  border:0!important;border-radius:0!important;
+  background:transparent!important;box-shadow:none!important;
+  filter:drop-shadow(0 18px 36px rgba(0,0,0,.42));
+}
+.hero-cinematic .hero-visual-caption{bottom:1%;z-index:6}
+.hero-cinematic .hero-tech-card{min-width:98px;padding:13px 14px}
+.hero-cinematic .tech-laravel{top:13%;right:1%}
+.hero-cinematic .tech-php{top:29%;left:-1%}
+.hero-cinematic .tech-mysql{top:45%;right:-1%}
+.hero-cinematic .tech-docker{top:61%;left:-1%}
+.hero-cinematic .tech-redis{top:76%;right:2%}
+.hero-cinematic .tech-livewire{top:3%;left:5%}
+.hero-cinematic .hero-content h1{font-size:clamp(3.8rem,6vw,6.1rem)}
+.hero-cinematic .hero-headline{font-size:clamp(1.35rem,2vw,1.85rem)!important}
+@media(max-width:1050px){
+ .hero-cinematic{width:min(100% - 44px,900px)!important;gap:20px!important}
+ .hero-cinematic .hero-visual{min-height:570px;height:650px}
+ .hero-cinematic .hero-portrait-stage{height:100%}
+ .hero-cinematic .hero-tech-card{min-width:76px;padding:9px}
+}
+@media(max-width:900px){
+ .hero-cinematic{
+   display:flex!important;flex-direction:column!important;
+   width:min(100% - 32px,680px)!important;
+   min-height:0!important;height:auto!important;
+   padding:calc(var(--nav-height) + 32px) 0 46px!important;
+   gap:12px!important;text-align:center;
+ }
+ .hero-cinematic .hero-intro{width:100%;max-width:none;order:0}
+ .hero-cinematic .hero-availability{margin-inline:auto}
+ .hero-cinematic .hero-content h1{font-size:clamp(3rem,10vw,4.8rem)}
+ .hero-cinematic .hero-headline{margin-inline:auto!important}
+ .hero-cinematic .hero-content p{margin-inline:auto}
+ .hero-cinematic .hero-btns,.hero-cinematic .social-hero,.hero-cinematic .hero-metrics{justify-content:center}
+ .hero-cinematic .hero-visual{
+   order:1;width:100%;height:auto;min-height:0;
+   aspect-ratio:4/5;max-height:640px;margin:8px auto 0;
+ }
+ .hero-cinematic .hero-portrait-stage{width:100%;height:100%;max-height:none}
+ .hero-cinematic .hero-portal{width:82%;height:88%;left:9%;bottom:5%}
+ .hero-cinematic .hero-tech-card{min-width:66px;padding:7px 8px}
+ .hero-cinematic .hero-tech-card b{font-size:1.05rem}
+ .hero-cinematic .hero-tech-card span{font-size:.62rem}
+ .hero-cinematic .hero-visual-caption{font-size:.65rem;bottom:0}
+}
+@media(max-width:560px){
+ .hero-cinematic{width:calc(100% - 28px)!important}
+ .hero-cinematic .hero-visual{aspect-ratio:4/5;max-height:500px}
+ .hero-cinematic .hero-metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 0}
+ .hero-cinematic .hero-metrics>div{min-width:0;padding:0 10px}
+ .hero-cinematic .hero-metrics>div:nth-child(2){border-right:0}
+ .hero-cinematic .hero-metrics>div:first-child,.hero-cinematic .hero-metrics>div:nth-child(3){padding-left:0}
+ .hero-cinematic .hero-availability{font-size:.7rem}
+ .hero-cinematic .hero-visual-caption{max-width:92%;white-space:normal;justify-content:center}
+}
