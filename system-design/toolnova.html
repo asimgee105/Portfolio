@@ -1,6 +1,13 @@
 <!doctype html>
 <html lang="en">
 <head>
+    <!-- Always start fresh page visits at the top; keep intentional #section links working. -->
+    <script>
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+      window.addEventListener('pageshow', function () {
+        if (!window.location.hash) window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      });
+    </script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ToolNova Utility Platform Architecture | Asim Ali</title>
