@@ -1104,31 +1104,45 @@ if (typedTextSpan) {
 // ==========================================================================
 function initReveal() {
     const revealElements = document.querySelectorAll(".reveal, .reveal-left, .reveal-right, .reveal-scale");
-    
-    const revealObserver = new IntersectionObserver((entries) => {
+    const staggerGrids = document.querySelectorAll(".stagger-grid");
+
+    // If IntersectionObserver is unavailable, keep everything visible.
+    if (!("IntersectionObserver" in window)) {
+        revealElements.forEach(el => el.classList.add("active"));
+        staggerGrids.forEach(grid => Array.from(grid.children).forEach(item => item.classList.add("active")));
+        return;
+    }
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add("active");
-                revealObserver.unobserve(entry.target);
+                observer.unobserve(entry.target);
             }
         });
     }, {
-        threshold: 0.05,
-        rootMargin: "0px 0px -40px 0px"
+        threshold: 0.01,
+        rootMargin: "0px 0px 80px 0px"
     });
-    
+
+    // Mark reveal mode only after the observer is successfully initialized.
+    document.body.classList.add("reveal-ready");
     revealElements.forEach(el => revealObserver.observe(el));
-    
-    // Automatically apply reveals and staggered delays to lists/grids
-    const staggerGrids = document.querySelectorAll(".stagger-grid");
+
+    // Include grid children in the same observer.
     staggerGrids.forEach(grid => {
-        const items = grid.children;
-        Array.from(items).forEach((item, index) => {
+        Array.from(grid.children).forEach((item, index) => {
             item.classList.add("reveal");
             item.style.transitionDelay = `${index * 0.08}s`;
             revealObserver.observe(item);
         });
     });
+
+    // Safety net: never leave content invisible if an observer event is missed.
+    window.setTimeout(() => {
+        document.querySelectorAll("body.reveal-ready .reveal:not(.active), body.reveal-ready .reveal-left:not(.active), body.reveal-ready .reveal-right:not(.active), body.reveal-ready .reveal-scale:not(.active)")
+            .forEach(el => el.classList.add("active"));
+    }, 2200);
 }
 
 if (document.readyState === "loading") {
