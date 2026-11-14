@@ -1388,10 +1388,11 @@ footer p {
    ========================================================================== */
 
 /* Hardware Accelerated Base Reveal Classes */
-.reveal,
-.reveal-left,
-.reveal-right,
-.reveal-scale {
+/* Fail-open reveal: content stays visible if JavaScript/observer is unavailable. */
+body.reveal-ready .reveal,
+body.reveal-ready .reveal-left,
+body.reveal-ready .reveal-right,
+body.reveal-ready .reveal-scale {
     opacity: 0;
     will-change: transform, opacity;
     transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1),
