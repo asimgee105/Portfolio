@@ -94,3 +94,26 @@
  .hero-cinematic .hero-visual-caption{max-width:85%;font-size:.58rem}
 }
 @media(prefers-reduced-motion:reduce){.hero-cinematic .hero-walking-portrait{animation:none!important}}
+
+
+/* Slow-motion walk treatment for Asim's transparent full-body suit portrait. */
+.hero-cinematic .hero-portrait-stage{overflow:visible;perspective:1100px}
+.hero-cinematic .hero-walking-portrait{
+  object-fit:contain!important;object-position:center bottom!important;
+  animation:asimSlowWalkEntrance 2.4s cubic-bezier(.18,.72,.24,1) both,
+            asimSlowWalkLoop 4.8s ease-in-out 2.4s infinite!important;
+  transform-origin:50% 92%;will-change:transform,filter;
+  filter:drop-shadow(0 24px 30px rgba(0,0,0,.5)) drop-shadow(0 0 20px rgba(0,125,255,.12));
+}
+@keyframes asimSlowWalkEntrance{
+  0%{opacity:0;transform:translate3d(0,54px,0) scale(.94)}
+  65%{opacity:1;transform:translate3d(0,-5px,0) scale(1.015)}
+  100%{opacity:1;transform:translate3d(0,0,0) scale(1)}
+}
+@keyframes asimSlowWalkLoop{
+  0%,100%{transform:translate3d(0,0,0) scale(1) rotate(0deg)}
+  25%{transform:translate3d(-3px,-5px,0) scale(1.006) rotate(-.35deg)}
+  50%{transform:translate3d(0,-10px,0) scale(1.012) rotate(0deg)}
+  75%{transform:translate3d(3px,-5px,0) scale(1.006) rotate(.35deg)}
+}
+@media(prefers-reduced-motion:reduce){.hero-cinematic .hero-walking-portrait{animation:none!important;transform:none!important}}
