@@ -2,6 +2,13 @@
 <html lang="en" data-theme="dark">
 
 <head>
+    <!-- Always start fresh page visits at the top; keep intentional #section links working. -->
+    <script>
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+      window.addEventListener('pageshow', function () {
+        if (!window.location.hash) window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      });
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reliable Stripe Integrations: Designing Fault-Tolerant Webhooks | Asim Ali</title>
