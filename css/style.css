@@ -2222,3 +2222,44 @@ footer a:hover { color:#45bdff !important; }
 @media(prefers-reduced-motion:reduce) {
   *,*::before,*::after { scroll-behavior:auto !important; animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; }
 }
+
+
+/* ==========================================================================
+   EMERGENCY CONTENT VISIBILITY FIX — no section may depend on JavaScript
+   ========================================================================== */
+.reveal,
+.reveal-left,
+.reveal-right,
+.reveal-scale,
+.stagger-grid > * {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    filter: none !important;
+}
+.reveal.active,
+.reveal-left.active,
+.reveal-right.active,
+.reveal-scale.active {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+}
+/* Keep all homepage sections in normal document flow. */
+#home, #about, #services, #client-services, #skills, #timeline,
+#portfolio, #github, #ai, #project-faq, #contact {
+    display: block;
+    position: relative;
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+}
+#home { min-height: min(850px, calc(100vh - var(--nav-height, 72px))); }
+@media (max-width: 900px) {
+    #home { min-height: 0; }
+    .hero-visual { min-height: 420px; }
+}
+@media (max-width: 560px) {
+    .hero-visual { min-height: 360px; }
+    .hero-portrait-stage { height: 350px; }
+}
